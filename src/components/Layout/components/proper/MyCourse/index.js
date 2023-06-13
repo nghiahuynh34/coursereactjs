@@ -25,13 +25,13 @@ function MyCourse() {
                     </div>
                     <div className={cx('content')}>
                         {dataLinkImage.map((course, index) => <div key={index} className={cx('body')}>
-                            <Button className={cx('fix-button')} to='/course'>
+                            <Button className={cx('fix-button')} to={course.link}>
                                 <img className={cx('thumnail')} src={course.img} alt='' />
                             </Button>
                             <div className={cx('body-child')}>
-                                <h3><Button className={cx('h3')} to='/reacjs'>{course.title}</Button></h3>
+                                <h3><Button className={cx('h3')} to={course.link}>{course.title}</Button></h3>
                                 <p className={cx('hours')}>Học {course.hour} trước</p>
-                                <Button className={cx('contiunue-Learn')} to='/course'>Tiếp tục học</Button>
+                                <Button className={cx('contiunue-Learn')} to={course.link}>Tiếp tục học</Button>
                             </div>
                         </div>)}
 

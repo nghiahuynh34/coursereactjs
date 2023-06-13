@@ -10,7 +10,7 @@ const cx = classNames.bind(styles)
 
 
 function ShowResult() {
-    const user = JSON.parse(localStorage.getItem('currentUser'))
+    const { Username } = JSON.parse(localStorage.getItem('currentUser'))
     const handleLogout = () => {
         localStorage.removeItem('token');
         const data = { Username: null, email: null, admin: null, avatar: null }
@@ -55,7 +55,7 @@ function ShowResult() {
                             </div>
                             <div className={cx('wellcome-right')}>
                                 <h1>Xin chào,
-                                    <span>{user.Username ? user.Username : ''}!</span></h1>
+                                    <span>{Username}!</span></h1>
                                 <p><span className={cx('wellcome-right-main')}>Chào mừng bạn đến với cộng đồng
                                     <strong> LE - Học Lập trình - Học mọi thứ</strong></span>
                                     <span>nơi học lập trình miễn phí, hiệu quả và thiết thực</span></p>

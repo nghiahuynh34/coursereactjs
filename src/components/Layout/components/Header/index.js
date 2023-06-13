@@ -37,12 +37,13 @@ function Header() {
             })
             .catch(() => {
                 // setUserState(localStorage.removeItem('token'))
-                alert("lôi server")
+                console.log('lỗi server')
 
             })
     }, [])
 
     const context = useContext(StoreContext)
+
 
     return (
         <div className={cx('wrapper', location.pathname === Configroutes.profile ? ('nav-transparent') : (''))}>

@@ -116,15 +116,13 @@ function Register() {
                 email,
                 pass
             }
-            console.log(data)
             axios.post("http://localhost:3000/auths/resgister/auth-resgister", { data })
                 .then(res => {
-                    console.log(res.data)
                     if (res.data.success === 1) {
                         setTimeout(() => {
                             context.setAlertMassage(!context.alertMassage)
                             localStorage.setItem('token', res.data.acesstoken)
-                            localStorage.setItem('currentUser', res.data.curentUser)
+                            localStorage.setItem('currentUser', JSON.stringify(res.data.curentUser))
                             window.location.href = '/OverBoarding'
                         }, 3000)
 

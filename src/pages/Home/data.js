@@ -68,6 +68,13 @@ export const dataDigitalBestSeller = [
 
 export const dataLinkImage = [
     {
+        img: 'https://files.fullstack.edu.vn/f8-prod/courses/7.png',
+        title: 'Nhập môn lập trình',
+        discp: 'Nắm vững các kiến thức cơ bản là việc cơ bản và cần thiết khi học bất cứ môn nào',
+        hour: "5 giờ",
+        link: '/Learning/nhap-mon-lap-trinh'
+    },
+    {
         img: 'http://localhost:3001/static/media/Winforms.9bb7d856b03b07d784bb.png',
         title: 'Lập trình Winform cơ bản',
         discp: 'Nắm vững các kiến thức cơ bản của winform bao gồm cách làm việc với các thuộc tính, truy xuất... của label, textbox, checkbox, combobox....',

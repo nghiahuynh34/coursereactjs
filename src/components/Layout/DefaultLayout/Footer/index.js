@@ -36,10 +36,10 @@ function Footer() {
                         <div>
                             <h2 className={cx('heading')}>Tổng quan</h2>
                             <ul className={cx('list')}>
-                                <li><Link to='/introduce'>Giới thiệu</Link></li>
-                                <li><Link to='/contact'>Liên hệ</Link></li>
-                                <li><Link to='/terms'>Điều khoản</Link></li>
-                                <li><Link to='/privacy'>Bảo mật</Link></li>
+                                <li><Link to={ConfigRoutes.Introduce}>Giới thiệu</Link></li>
+                                <li><Link to={ConfigRoutes.Contact}>Liên hệ</Link></li>
+                                <li><Link to={ConfigRoutes.pathLearning}>Lộ trình</Link></li>
+
                             </ul>
                         </div>
                     </div>
@@ -49,10 +49,9 @@ function Footer() {
                         <div>
                             <h2 className={cx('heading')}>Khóa học</h2>
                             <ul className={cx('list')}>
-                                <li><Link to={ConfigRoutes.pathLearning}>FrontEnd</Link></li>
-                                <li><Link to={ConfigRoutes.pathLearning}>BackEnd</Link></li>
-                                <li><Link to={ConfigRoutes.study}>English Basic</Link></li>
-                                <li><Link to={ConfigRoutes.study}>English Advance</Link></li>
+                                <li><Link to={ConfigRoutes.FrontEnd}>FrontEnd</Link></li>
+                                <li><Link to={ConfigRoutes.BackEnd}>BackEnd</Link></li>
+                                <li><Link to={ConfigRoutes.English}>English Course</Link></li>
                             </ul>
                         </div>
                     </div>

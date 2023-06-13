@@ -92,6 +92,8 @@ function Contact() {
 
         // setValidateMsg({ ...msg, ...validateMsg })
     }
+
+
     const hanldSubmit = (e) => {
         const isValid = ValidatAll()
         console.log(isValid)
@@ -101,7 +103,13 @@ function Contact() {
         }
         else {
             e.preventDefault()
-            context.setAlertMassage(!context.alertMassage)
+
+            if (context.alertMassage === false) {
+                context.setAlertMassage(true)
+            }
+
+
+
         }
     }
     return <> <section className={cx('module-grid', 'module-fullwidth')} style={{ maxWidth: '1920px' }}>
@@ -190,7 +198,7 @@ function Contact() {
                                     </div>
                                     <span className={cx('message')}>{validateMsg.content}</span>
                                 </div>
-                                <Button primary onClick={hanldSubmit}>Gửi nội dung</Button>
+                                <Button primary onClick={hanldSubmit} onMouseOut={() => context.setAlertMassage(false)}>Gửi nội dung</Button>
                             </form>
                         </div>
                     </section>

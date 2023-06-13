@@ -18,7 +18,7 @@
 
     inset: auto;
     left: 40%;
-    width: 31vw;
+    width: 400px;
     border: 1px solid #c8c7c7;
     top: 35%;
 
@@ -231,4 +231,52 @@
     font-size: 20px;
     color: rgba(0, 0, 0, 0.3);
     cursor: pointer;
+}
+
+@media screen and (max-width:1000px) {
+    .modal.medium {
+        // width: 40vw;
+        left: 27%;
+    }
+
+
+}
+
+@media screen and (max-width:630px) {
+    .modal.medium {
+        // width: 25vw;
+        left: 15%;
+
+    }
+
+
+}
+
+@media screen and (max-width:490px) {
+    .modal.medium {
+        width: 330px;
+        left: 10%;
+
+    }
+
+
+}
+
+@media screen and (max-width:380px) {
+    .modal.medium {
+        width: 300px;
+
+
+    }
+
+
+}
+
+@media screen and (max-width:330px) {
+    .modal.medium {
+        width: 100%;
+        left: 0;
+    }
+
+
 }

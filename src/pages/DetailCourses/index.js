@@ -68,6 +68,8 @@ function Learning() {
         // eslint-disable-next-line
     }, [slug])
 
+
+
     useEffect(() => {
         axios.get("http://localhost:3000/api/course/" + searchPar.get('id'))
             .then(res => {
@@ -94,13 +96,15 @@ function Learning() {
             image: image
         }
         console.log(data)
-        axios.post("http://localhost:3000/course/edit/" + searchPar.get('id'), {
+        axios.put("http://localhost:3000/course/edit/" + searchPar.get('id'), {
             headers: {
+
                 'access-token': localStorage.getItem('token')
             }, data: data
         })
             .then(res => {
-                alert(res.data.success)
+                if (res.data.success === 1)
+                    alert("thanh cong")
             })
             .catch(() => {
                 alert("lỗi server")
@@ -134,14 +138,10 @@ function Learning() {
                 <div className={cx('body')}>
                     {course.map((crs, index) => <div key={crs._id} className={cx('trackitem-step-list', 'trackitem-open')}>
                         <div className={cx('stepitem-wrapper', searchPar.get('id') === crs._id ? active : '')}>
-                            <div onClick={() => {
-                                navigate({
-                                    pathname: location.pathname,
-                                    search: `?id=${crs._id}`,
-
-                                })
-
-                            }} className={cx('stepitem-info')}>
+                            <div onClick={() => navigate({
+                                pathname: location.pathname,
+                                search: `?id=${crs._id}`,
+                            })} className={cx('stepitem-info')}>
                                 <h3 className={cx('stepitem-title')}>{index + 1}.{crs.name}</h3>
 
                             </div>

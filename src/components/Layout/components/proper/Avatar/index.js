@@ -11,7 +11,7 @@ const cx = classNames.bind(styles)
 function Avatar({ data }) {
     const context = useContext(StoreContext)
     const handleLogout = () => {
-        localStorage.removeItem('token');
+        localStorage.removeItem('token')
         const data1 = { Username: null, email: null, admin: null, avatar: null }
         localStorage.setItem('currentUser', JSON.stringify(data1));
         window.location.href = '/login';
