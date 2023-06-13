@@ -1,0 +1,27 @@
+.wrapper {
+    border-radius: 999px;
+    font-size: 1.4rem;
+    font-weight: 600;
+    padding: 9px 20px;
+    cursor: pointer;
+}
+
+.primary {
+    background-color: #f05123;
+    color: #fff !important;
+
+
+    &:hover {
+        opacity: 0.8;
+    }
+}
+
+.normal {
+    background-color: #fff;
+    color: black;
+}
+
+.fomal {
+    background-color: #000000 !important;
+    color: #fff !important;
+}
