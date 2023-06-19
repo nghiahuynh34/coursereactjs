@@ -128,20 +128,24 @@ export const dataLinkImage = [
 export const EnglishLinkImage = [
     {
         img: 'http://localhost:3001/static/media/basicE.ddaee2101a1783afd88b.png',
-        title: 'Nền tảng tiếng anh cho người mới bất đầu'
+        title: 'Nền tảng tiếng anh cho người mới bất đầu',
+        link: '/Learning/nen-tang-tieng-anh-cho-nguoi-moi-bat-daus'
     },
     {
         img: 'http://localhost:3001/static/media/englishmethod.2ff01a1d13c304df6850.png',
-        title: 'Phương pháp tự học tiếng anh'
+        title: 'Phương pháp tự học tiếng anh',
+        link: '/Learning/phuong-phap-tu-hoc-tieng-anh'
 
     },
     {
         img: 'http://localhost:3001/static/media/dailyenglish.131f4ba3b7089f393e10.png',
-        title: 'Tiếng anh giao tiếp thường ngày'
+        title: 'Tiếng anh giao tiếp thường ngày',
+        link: '/Learning/tieng-anh-giao-tiep-thuong-ngay'
     },
     {
         img: 'http://localhost:3001/static/media/SPVSLIS.86959435f980a34cdeba.png',
-        title: 'Luyện Speaking và Listening'
+        title: 'Luyện Speaking và Listening',
+        link: '/Learning/luyen-speaking-va-listening'
     },
     // {
     //     img: 'http://localhost:3001/static/media/listening.01892038a08f6d233541.png',

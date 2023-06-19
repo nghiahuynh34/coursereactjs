@@ -51,7 +51,7 @@ function Disscuss() {
                                         <span className={cx('discuss-dot')}>1 phút đọc</span>
                                     </div>
                                 </div>
-                                <Link className={cx('profile-thumb')} to='/Learning/leason-for-user'><img className={cx('thumb-img')} src='https://files.fullstack.edu.vn/f8-prod/blog_posts/7256/64448752c63c4.jpg' alt='1' /></Link>
+                                <Link className={cx('profile-thumb')} to=''><img className={cx('thumb-img')} src='https://files.fullstack.edu.vn/f8-prod/blog_posts/7256/64448752c63c4.jpg' alt='1' /></Link>
                             </div>
                         </div>
                         <div className={cx('box-wrapper')}>
@@ -69,45 +69,11 @@ function Disscuss() {
                                         <span className={cx('discuss-dot')}>8 phút đọc</span>
                                     </div>
                                 </div>
-                                <Link className={cx('profile-thumb')} to='/Learning/leason-for-user'><img className={cx('thumb-img')} src='https://files.fullstack.edu.vn/f8-prod/blog_posts/6936/6422afa5a62f8.jpg' alt='1' /></Link>
+                                <Link className={cx('profile-thumb')} to=''><img className={cx('thumb-img')} src='https://files.fullstack.edu.vn/f8-prod/blog_posts/6936/6422afa5a62f8.jpg' alt='1' /></Link>
                             </div>
                         </div>
-                        <div className={cx('box-wrapper')}>
-                            <div className={cx('box-title')}>
-                                <img className={cx('discuss-image')} src='https://files.fullstack.edu.vn/f8-prod/user_photos/184722/62383632b8e58.jpg' alt='avatar' />
-                                <span className={cx('discuss-name')}>GzW</span>
-                            </div>
-                            <div className={cx('profile-inner')}>
-                                <div className={cx('info')}>
-                                    <h3 className={cx('info-title')}>Learn JavaScript while Playing Games — Gamify Your Learning</h3>
-                                    <p className={cx('info-desc')}>rong bài viết này, tôi muốn giới thiệu các trang web khác nhau mà bạn có thể sử dụng để học JavaScript khi chơi trò chơi. Phương...</p>
-                                    <div className={cx('discuss-info')}>
 
-                                        <span>2 tháng trước</span>
-                                        <span className={cx('discuss-dot')}>8 phút đọc</span>
-                                    </div>
-                                </div>
-                                <Link className={cx('profile-thumb')} to='/Learning/leason-for-user'><img className={cx('thumb-img')} src='https://files.fullstack.edu.vn/f8-prod/blog_posts/6936/6422afa5a62f8.jpg' alt='1' /></Link>
-                            </div>
-                        </div>
-                        <div className={cx('box-wrapper')}>
-                            <div className={cx('box-title')}>
-                                <img className={cx('discuss-image')} src='https://files.fullstack.edu.vn/f8-prod/user_photos/184722/62383632b8e58.jpg' alt='avatar' />
-                                <span className={cx('discuss-name')}>GzW</span>
-                            </div>
-                            <div className={cx('profile-inner')}>
-                                <div className={cx('info')}>
-                                    <h3 className={cx('info-title')}>Learn JavaScript while Playing Games — Gamify Your Learning</h3>
-                                    <p className={cx('info-desc')}>rong bài viết này, tôi muốn giới thiệu các trang web khác nhau mà bạn có thể sử dụng để học JavaScript khi chơi trò chơi. Phương...</p>
-                                    <div className={cx('discuss-info')}>
 
-                                        <span>2 tháng trước</span>
-                                        <span className={cx('discuss-dot')}>8 phút đọc</span>
-                                    </div>
-                                </div>
-                                <Link className={cx('profile-thumb')} to='/Learning/leason-for-user'><img className={cx('thumb-img')} src='https://files.fullstack.edu.vn/f8-prod/blog_posts/6936/6422afa5a62f8.jpg' alt='1' /></Link>
-                            </div>
-                        </div>
                     </section>
                     <section className={cx('col', 'col-c-12', 'col-m-12', 'col-l-4')}>
                         <div className={cx('content-left')}>

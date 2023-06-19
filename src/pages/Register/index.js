@@ -134,7 +134,10 @@ function Register() {
                         alert(res.data.msg)
                     }
                 })
-                .catch(() => console.log('loi'))
+                .catch(() => {
+                    const data = { Username: null, email: null, admin: null, avatar: null }
+                    localStorage.setItem('currentUser', JSON.stringify(data));
+                })
 
         }
     }

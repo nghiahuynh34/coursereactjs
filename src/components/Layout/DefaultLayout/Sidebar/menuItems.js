@@ -12,7 +12,7 @@ export const navLinkStyle = ({ isActive }) => {
 export const menuItems = [
     {
         path: ConfigRoutes.root,
-        name: 'Home',
+        name: 'Trang chủ',
         icon: <FontAwesomeIcon icon={faHouseChimney} />
     },
     {

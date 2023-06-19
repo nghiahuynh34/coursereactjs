@@ -29,9 +29,9 @@ function FrontEnd() {
                                 <div className={cx('info')}>
                                     <h3 className={cx('info-title-1')}>HTML-CSS</h3>
                                     <p className={cx('info-desc')}>Từ cơ bản tới chuyên sâu, thực hành 8 dự án, hàng trăm bài tập, trang hỏi đáp riêng, cấp chứng chỉ sau khi hoàn thành khóa học.</p>
-                                    <button className={cx('btn-study')}>Học</button>
+                                    <Link to='/Learning/html-css-tu-zero-den-hero' className={cx('btn-study')}>Học</Link>
                                 </div>
-                                <Link className={cx('profile-thumb')} to='/Learning/leason-for-user'><img className={cx('thumb-img')} src='https://files.fullstack.edu.vn/f8-prod/courses/2.png' alt='1' /></Link>
+                                <Link className={cx('profile-thumb')} to='/Learning/html-css-tu-zero-den-hero'><img className={cx('thumb-img')} src='https://files.fullstack.edu.vn/f8-prod/courses/2.png' alt='1' /></Link>
 
                             </div>
                         </div>
@@ -43,9 +43,9 @@ function FrontEnd() {
                                 <div className={cx('info')}>
                                     <h3 className={cx('info-title-1')}>Terminal & Ubuntu</h3>
                                     <p className={cx('info-desc')}>Học cách làm việc với Ubuntu bao gồm các lệnh cơ bản như cd, cat, touch, mkdir, rm, rmkdir,grep... giúp bạn trong việc tương tác và sử dụng thuần thục hơn</p>
-                                    <button className={cx('btn-study')}>Học</button>
+                                    <Link to='/Learning/lam-viec-voi-unbuntu' className={cx('btn-study')}>Học</Link>
                                 </div>
-                                <Link className={cx('profile-thumb')} to='/Learning/leason-for-user'><img className={cx('thumb-img')} src='https://files.fullstack.edu.vn/f8-prod/courses/14/624faac11d109.png' alt='1' /></Link>
+                                <Link className={cx('profile-thumb')} to='/Learning/lam-viec-voi-unbuntu'><img className={cx('thumb-img')} src='https://files.fullstack.edu.vn/f8-prod/courses/14/624faac11d109.png' alt='1' /></Link>
                             </div>
                         </div>
 
@@ -60,9 +60,9 @@ function FrontEnd() {
                                     <div className={cx('info')}>
                                         <h3 className={cx('info-title')}>Lập Trình JavaScript</h3>
                                         <p className={cx('info-desc')}>Học Javascript cơ bản phù hợp cho người chưa từng học lập trình. Với hơn 100 bài học và có bài tập thực hành sau mỗi bài học.</p>
-                                        <button className={cx('btn-study')}>Học</button>
+                                        <Link to='/Learning/javascript-co-ban' className={cx('btn-study')}>Học</Link>
                                     </div>
-                                    <Link className={cx('profile-thumb')} to='/Learning/leason-for-user'><img className={cx('thumb-img')} src={JS} alt='1' /></Link>
+                                    <Link className={cx('profile-thumb')} to='/Learning/javascript-co-ban'><img className={cx('thumb-img')} src={JS} alt='1' /></Link>
                                 </div>
                             </div>
                             <h2 className={cx('info-title-1', 'fix-margin')}>4.REACTJS</h2>
@@ -73,14 +73,14 @@ function FrontEnd() {
                                     <div className={cx('info')}>
                                         <h3 className={cx('info-title')}>FrameWork REACTJS</h3>
                                         <p className={cx('info-desc')}>Khóa học ReactJS từ cơ bản tới nâng cao, kết quả của khóa học này là bạn có thể làm hầu hết các dự án thường gặp với ReactJS.</p>
-                                        <button className={cx('btn-study')}>Học</button>
+                                        <Link to='/Learning/reactjs' className={cx('btn-study')}>Học</Link>
                                         {/* <div className={cx('discuss-info')}>
 
                                             <span>2 tháng trước</span>
                                             <span className={cx('discuss-dot')}>8 phút đọc</span>
                                         </div> */}
                                     </div>
-                                    <Link className={cx('profile-thumb')} to='/Learning/leason-for-user'><img className={cx('thumb-img')} src='https://files.fullstack.edu.vn/f8-prod/courses/13/13.png' alt='1' /></Link>
+                                    <Link className={cx('profile-thumb')} to='/Learning/reactjs'><img className={cx('thumb-img')} src='https://files.fullstack.edu.vn/f8-prod/courses/13/13.png' alt='1' /></Link>
                                 </div>
                             </div>
                         </div>

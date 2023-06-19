@@ -26,9 +26,9 @@ function BackEnd() {
                                 <div className={cx('info')}>
                                     <h3 className={cx('info-title-1')}>HTML-CSS</h3>
                                     <p className={cx('info-desc')}>Từ cơ bản tới chuyên sâu, thực hành 8 dự án, hàng trăm bài tập, trang hỏi đáp riêng, cấp chứng chỉ sau khi hoàn thành khóa học.</p>
-                                    <button className={cx('btn-study')}>Học</button>
+                                    <Link to='/Learning/html-css-tu-zero-den-hero' className={cx('btn-study')}>Học</Link>
                                 </div>
-                                <Link className={cx('profile-thumb')} to='/Learning/leason-for-user'><img className={cx('thumb-img')} src='https://files.fullstack.edu.vn/f8-prod/courses/2.png' alt='1' /></Link>
+                                <Link className={cx('profile-thumb')} to='/Learning/html-css-tu-zero-den-hero'><img className={cx('thumb-img')} src='https://files.fullstack.edu.vn/f8-prod/courses/2.png' alt='1' /></Link>
 
                             </div>
                         </div>
@@ -40,9 +40,9 @@ function BackEnd() {
                                 <div className={cx('info')}>
                                     <h3 className={cx('info-title-1')}>Terminal & Ubuntu</h3>
                                     <p className={cx('info-desc')}>Sở hữu một Terminal hiện đại, mạnh mẽ trong tùy biến và học cách làm việc với Ubuntu là một bước quan trọng.</p>
-                                    <button className={cx('btn-study')}>Học</button>
+                                    <Link to='/Learning/lam-viec-voi-unbuntu' className={cx('btn-study')}>Học</Link>
                                 </div>
-                                <Link className={cx('profile-thumb')} to='/Learning/leason-for-user'><img className={cx('thumb-img')} src='https://files.fullstack.edu.vn/f8-prod/courses/14/624faac11d109.png' alt='1' /></Link>
+                                <Link className={cx('profile-thumb')} to='/Learning/lam-viec-voi-unbuntu'><img className={cx('thumb-img')} src='https://files.fullstack.edu.vn/f8-prod/courses/14/624faac11d109.png' alt='1' /></Link>
                             </div>
                         </div>
 
@@ -57,9 +57,9 @@ function BackEnd() {
                                     <div className={cx('info')}>
                                         <h3 className={cx('info-title')}>Lập Trình JavaScript</h3>
                                         <p className={cx('info-desc')}>Học Javascript cơ bản phù hợp cho người chưa từng học lập trình. Với hơn 100 bài học và có bài tập thực hành sau mỗi bài học.</p>
-                                        <button className={cx('btn-study')}>Học</button>
+                                        <Link to='/Learning/javascript-co-ban' className={cx('btn-study')}>Học</Link>
                                     </div>
-                                    <Link className={cx('profile-thumb')} to='/Learning/leason-for-user'><img className={cx('thumb-img')} src={JS} alt='1' /></Link>
+                                    <Link className={cx('profile-thumb')} to='/Learning/javascript-co-ban'><img className={cx('thumb-img')} src={JS} alt='1' /></Link>
                                 </div>
                             </div>
                             <h2 className={cx('info-title-1', 'fix-margin')}>4.NODEJS</h2>
@@ -70,10 +70,10 @@ function BackEnd() {
                                     <div className={cx('info')}>
                                         <h3 className={cx('info-title')}>Node & ExpressJS</h3>
                                         <p className={cx('info-desc')}>Học Back-end với Node & ExpressJS framework, hiểu các khái niệm khi làm Back-end và xây dựng RESTful API cho trang web.</p>
-                                        <button className={cx('btn-study')}>Học</button>
+                                        <Link to='/Learning/nodejs' className={cx('btn-study')}>Học</Link>
 
                                     </div>
-                                    <Link className={cx('profile-thumb')} to='/Learning/leason-for-user'><img className={cx('thumb-img')} src='https://files.fullstack.edu.vn/f8-prod/courses/6.png' alt='1' /></Link>
+                                    <Link className={cx('profile-thumb')} to='/Learning/nodejs'><img className={cx('thumb-img')} src='https://files.fullstack.edu.vn/f8-prod/courses/6.png' alt='1' /></Link>
                                 </div>
                             </div>
                         </div>

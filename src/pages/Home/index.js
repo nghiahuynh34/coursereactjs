@@ -34,11 +34,11 @@ function Home() {
             .then(res => {
                 setDatas([...res.data.data1])
                 setDataEnglish([...res.data.data2])
-
             })
             .catch(() => {
-
-                alert('Lỗi không lấy được topics')
+                localStorage.removeItem('token');
+                const data = { Username: null, email: null, admin: null, avatar: null }
+                localStorage.setItem('currentUser', JSON.stringify(data));
             })
     }, [])
     const allDatas = { topics: [...datas], english: [...dataEnglish] }
@@ -277,7 +277,7 @@ function Home() {
                                         <span className={cx('view-all-icon')}><FontAwesomeIcon icon={faArrowRight} /></span>
                                     </Link>
                                 </h2>
-                                <Link rel='noreferrer' className={cx('view-all')} to={ConfigRoutes.pathLearning} target="_self">Xem Thêm
+                                <Link rel='noreferrer' className={cx('view-all')} to={ConfigRoutes.pathLearning} target="_self">Xem khóa học
                                     <FontAwesomeIcon icon={faChevronRight} /></Link>
                             </div>
                         </div>

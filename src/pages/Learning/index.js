@@ -77,7 +77,7 @@ function Learning() {
                 setCourseDetail({ ...res.data.course })
             })
             .catch(() => {
-                alert("lỗi server")
+                context.setMessageWatch(true)
             })
         // eslint-disable-next-line
     }, [searchPar.get('id')])

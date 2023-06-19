@@ -104,7 +104,10 @@ function Login() {
                         alert(res.data.msg)
                     }
                 })
-                .catch(() => alert('loi server'))
+                .catch(() => {
+                    const data = { Username: null, email: null, admin: null, avatar: null }
+                    localStorage.setItem('currentUser', JSON.stringify(data));
+                })
 
         }
     }

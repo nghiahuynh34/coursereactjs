@@ -29,15 +29,17 @@ function Header() {
         })
             .then(res => {
                 setDatas({ ...res.data.data })
-                if (res.data.err === 0) {
-                    setUserState(localStorage.removeItem('token'));
-                    const data = { Username: null, email: null, admin: null, avatar: null }
-                    localStorage.setItem('currentUser', JSON.stringify(data));
-                }
+                // if (res.data.err === 0) {
+                //     setUserState(localStorage.removeItem('token'));
+                //     const data = { Username: null, email: null, admin: null, avatar: null }
+                //     localStorage.setItem('currentUser', JSON.stringify(data));
+                // }
             })
             .catch(() => {
                 // setUserState(localStorage.removeItem('token'))
-                console.log('lỗi server')
+                setUserState(localStorage.removeItem('token'));
+                const data = { Username: null, email: null, admin: null, avatar: null }
+                localStorage.setItem('currentUser', JSON.stringify(data));
 
             })
     }, [])

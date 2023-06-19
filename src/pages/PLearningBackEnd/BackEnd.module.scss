@@ -151,7 +151,7 @@
     padding: 5px 15px;
     background: #ff7f1c;
     border-radius: 9px;
-    color: #fff;
+    color: #fff !important;
     font-weight: 700;
 
     &:hover {
@@ -271,7 +271,7 @@
 
 }
 
-@media (min-width:0) and (max-width:360px) {
+@media (min-width:0) and (max-width:500px) {
     .text-text {
         display: none;
     }

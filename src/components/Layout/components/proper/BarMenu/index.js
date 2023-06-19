@@ -11,6 +11,7 @@ import { StoreContext } from '../../../../../store';
 const cx = classNames.bind(styles)
 
 function BarMenu() {
+    const { Username, avatar } = JSON.parse(localStorage.getItem('currentUser'))
     const handleLogout = () => {
         localStorage.removeItem('token');
         window.location.href = '/login';
@@ -25,35 +26,39 @@ function BarMenu() {
 
                 <div className={cx("overlay")} >
                     <FontAwesomeIcon onClick={context.handleBarMenu} className={cx('closebtn')} icon={faXmark} />
-                    <div className={cx("user")}>
+                    {Username ? (<div className={cx("user")}>
                         <div className={cx('avatar')}>
                             <div className={cx('avatar-child')}>
-                                <img src='https://www.gravatar.com/avatar/fa88b4d7b23fa21224fca92bbf4b16c8?s=140&d=retro' alt='huynh huu nghia' />
+                                <img src={avatar ? ('https://www.gravatar.com/avatar/fa88b4d7b23fa21224fca92bbf4b16c8?s=140&d=retro') : ('https://bootdey.com/img/Content/avatar/avatar7.png')} alt={Username} />
                             </div>
                         </div>
                         <div className={cx('info')}>
-                            <span className={cx('name')}>Huynh Huu Nghia</span>
+                            <span className={cx('name')}>{Username}</span>
                         </div>
-                    </div>
+                    </div>) : (<div className={cx("user-new")}>
+                        <Link className={cx('bnt-login')} to={ConfigRoutes.Login}>Đăng nhập</Link>
+                    </div>)}
+
                     <div className={cx('list-item')}>
-                        <ul className={cx('details', 'detail-list')}>
-                            <li className={cx('item-child')}>
-                                <NavLink style={navLinkStyle} to={ConfigRoutes.profile} className={cx('sidebar-item')} >
-                                    <em>
-                                        <FontAwesomeIcon icon={faBookOpenReader} />
-                                    </em>
-                                    <span>Trang cá nhân</span>
-                                </NavLink>
-                            </li>
-                            <li className={cx('item-child')}>
-                                <NavLink style={navLinkStyle} to={ConfigRoutes.manageCourses} className={cx('sidebar-item')} >
-                                    <em>
-                                        <FontAwesomeIcon icon={faBookOpenReader} />
-                                    </em>
-                                    <span>Khóa học của tôi</span>
-                                </NavLink>
-                            </li>
-                        </ul>
+                        {Username &&
+                            <ul className={cx('details', 'detail-list')}>
+                                <li className={cx('item-child')}>
+                                    <NavLink style={navLinkStyle} to={ConfigRoutes.profile} className={cx('sidebar-item')} >
+                                        <em>
+                                            <FontAwesomeIcon icon={faBookOpenReader} />
+                                        </em>
+                                        <span>Trang cá nhân</span>
+                                    </NavLink>
+                                </li>
+                                <li className={cx('item-child')}>
+                                    <NavLink style={navLinkStyle} to={ConfigRoutes.MyOnwCourse} className={cx('sidebar-item')} >
+                                        <em>
+                                            <FontAwesomeIcon icon={faBookOpenReader} />
+                                        </em>
+                                        <span>Khóa học của tôi</span>
+                                    </NavLink>
+                                </li>
+                            </ul>}
                         <ul className={cx('details', 'detail-list')}>
                             {
                                 menuItems.map((item, index) => (
@@ -85,31 +90,42 @@ function BarMenu() {
                                     <span>Liên hệ</span>
                                 </NavLink>
                             </li>
-                            <li className={cx('item-child')}>
-                                <NavLink style={navLinkStyle} to={ConfigRoutes.setting} className={cx('sidebar-item')} >
-                                    <em>
-                                        <FontAwesomeIcon icon={faFileSignature} />
-                                    </em>
-                                    <span>Cài đặt</span>
-                                </NavLink>
-                            </li>
+                            {Username &&
+                                <li className={cx('item-child')}>
+                                    <NavLink style={navLinkStyle} to={ConfigRoutes.setting} className={cx('sidebar-item')} >
+                                        <em>
+                                            <FontAwesomeIcon icon={faFileSignature} />
+                                        </em>
+                                        <span>Cài đặt tài khoản</span>
+                                    </NavLink>
+                                </li> &&
+                                <li className={cx('item-child')}>
+                                    <NavLink style={navLinkStyle} to={ConfigRoutes.Security} className={cx('sidebar-item')} >
+                                        <em>
+                                            <FontAwesomeIcon icon={faFileSignature} />
+                                        </em>
+                                        <span>Bảo mật và đăng nhập</span>
+                                    </NavLink>
+                                </li>
+                            }
                             {/* <ul>
                                 <li><NavLink to={ConfigRoutes.setting}><span>Cài đặt tài khoản</span></NavLink></li>
 
                             </ul> */}
                         </ul>
-                        <ul className={cx('details', 'detail-list')}>
+                        {Username &&
+                            <ul className={cx('details', 'detail-list')}>
 
-                            <li className={cx('item-child')}>
-                                <button className={cx('sidebar-item')} onClick={handleLogout}>
-                                    <em>
-                                        <FontAwesomeIcon icon={faBookOpenReader} />
-                                    </em>
-                                    <span>Đăng xuất</span>
-                                </button>
-                            </li>
-                        </ul>
-
+                                <li className={cx('item-child')}>
+                                    <button className={cx('sidebar-item')} onClick={handleLogout}>
+                                        <em>
+                                            <FontAwesomeIcon icon={faBookOpenReader} />
+                                        </em>
+                                        <span>Đăng xuất</span>
+                                    </button>
+                                </li>
+                            </ul>
+                        }
                     </div>
 
                 </div>

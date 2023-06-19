@@ -91,6 +91,10 @@
     padding: 32px 0 32px 20px;
 }
 
+.user-new {
+    padding: 20px;
+}
+
 .avatar {
     position: relative;
     width: 92px;
@@ -160,7 +164,13 @@
         font-weight: 500;
         padding: 20px 0 20px 20px;
         transition: .3s;
+
+        span {
+            font-size: 1.7rem;
+        }
     }
+
+
 }
 
 
@@ -175,4 +185,14 @@
     top: 20px;
     right: 45px;
     font-size: 30px;
+}
+
+.bnt-login {
+    border-radius: 999px;
+    font-size: 1.9rem;
+    font-weight: 600;
+    padding: 15px 20px;
+    cursor: pointer;
+    background-color: #f05123;
+    color: #fff !important;
 }

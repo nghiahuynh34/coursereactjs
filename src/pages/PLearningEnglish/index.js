@@ -29,9 +29,9 @@ function English() {
                                 <div className={cx('info')}>
                                     <h3 className={cx('info-title-1')}>Tiếng anh cơ bản</h3>
                                     <p className={cx('info-desc')}>Luyện phát âm chuẩn toàn bộ 44 âm trong Bảng phiên âm quốc tế (Bảng IPA). Giao tiếp, phản xạ qua các chủ điểm thông dụng, nối âm, biến âm, ngữ điệu.</p>
-                                    <button className={cx('btn-study')}>Học</button>
+                                    <Link to='/Learning/nen-tang-tieng-anh-cho-nguoi-moi-bat-dau' className={cx('btn-study')}>Học</Link>
                                 </div>
-                                <Link className={cx('profile-thumb')} to='/Learning/leason-for-user'><img className={cx('thumb-img')} src={EBS} alt='1' /></Link>
+                                <Link className={cx('profile-thumb')} to='/Learning/nen-tang-tieng-anh-cho-nguoi-moi-bat-dau'><img className={cx('thumb-img')} src={EBS} alt='1' /></Link>
 
                             </div>
                         </div>
@@ -43,9 +43,9 @@ function English() {
                                 <div className={cx('info')}>
                                     <h3 className={cx('info-title-1')}>Tiếng anh giao tiếp</h3>
                                     <p className={cx('info-desc')}>Các từ vựng trong các chủ điểm giao tiếp thường ngày, cấu trúc ngữ pháp giúp diễn tả ý dễ dàng, mạch lạc hơn,Học phát triển câu thông qua các cấu trúc</p>
-                                    <button className={cx('btn-study')}>Học</button>
+                                    <Link to='/Learning/tieng-anh-giao-tiep-thuong-ngay' className={cx('btn-study')}>Học</Link>
                                 </div>
-                                <Link className={cx('profile-thumb')} to='/Learning/leason-for-user'><img className={cx('thumb-img')} src={EFC} alt='1' /></Link>
+                                <Link className={cx('profile-thumb')} to='/Learning/tieng-anh-giao-tiep-thuong-ngay'><img className={cx('thumb-img')} src={EFC} alt='1' /></Link>
                             </div>
                         </div>
 
@@ -60,9 +60,9 @@ function English() {
                                     <div className={cx('info')}>
                                         <h3 className={cx('info-title')}>Phương pháp học tiếng anh</h3>
                                         <p className={cx('info-desc')}>Xây dựng niềm tin vững chắc với tiếng Anh, với bản thân, luôn tràn đầy động lực, tinh thần vượt đích, biết được chính xác phương pháp học đúng đắn.</p>
-                                        <button className={cx('btn-study')}>Học</button>
+                                        <Link to='/Learning/phuong-phap-tu-hoc-tieng-anh' className={cx('btn-study')}>Học</Link>
                                     </div>
-                                    <Link className={cx('profile-thumb')} to='/Learning/leason-for-user'><img className={cx('thumb-img')} src={EBM} alt='1' /></Link>
+                                    <Link className={cx('profile-thumb')} to='/Learning/phuong-phap-tu-hoc-tieng-anh'><img className={cx('thumb-img')} src={EBM} alt='1' /></Link>
                                 </div>
                             </div>
                             <h2 className={cx('info-title-1', 'fix-margin')}>4.Luyện nghe và Nói</h2>
@@ -73,14 +73,14 @@ function English() {
                                     <div className={cx('info')}>
                                         <h3 className={cx('info-title')}>Nghe và nói</h3>
                                         <p className={cx('info-desc')}>Các bài tập thực hành luyện nghe và nói. Luyện giao tiếp tiếng Anh và phản xạ nhanh thông qua các bài hội thoại để đạt được kết quả tốt nhất</p>
-                                        <button className={cx('btn-study')}>Học</button>
+                                        <Link to='/Learning/luyen-speaking-va-listening' className={cx('btn-study')}>Học</Link>
                                         {/* <div className={cx('discuss-info')}>
 
                                             <span>2 tháng trước</span>
                                             <span className={cx('discuss-dot')}>8 phút đọc</span>
                                         </div> */}
                                     </div>
-                                    <Link className={cx('profile-thumb')} to='/Learning/leason-for-user'><img className={cx('thumb-img')} src={SVSL} alt='1' /></Link>
+                                    <Link className={cx('profile-thumb')} to='/Learning/luyen-speaking-va-listening'><img className={cx('thumb-img')} src={SVSL} alt='1' /></Link>
                                 </div>
                             </div>
                         </div>
