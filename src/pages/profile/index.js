@@ -3,7 +3,7 @@ import classNames from "classnames/bind";
 import { HelloWorld } from '../../assets/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCamera, faUserGroup } from '@fortawesome/free-solid-svg-icons';
-import { Link, json } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { dataLinkImage } from '../Home/data';
 
 const cx = classNames.bind(styles)

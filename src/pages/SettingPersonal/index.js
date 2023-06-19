@@ -3,8 +3,8 @@ import styles from './Setting.module.scss'
 import classNames from "classnames/bind";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faShield, faUser } from '@fortawesome/free-solid-svg-icons';
-import ConfigRoutes from '../../config/routes'
+// import { faShield, faUser } from '@fortawesome/free-solid-svg-icons';
+// import ConfigRoutes from '../../config/routes'
 import { dataRouteProfiles, navLinkStyle } from './data';
 
 const cx = classNames.bind(styles)
