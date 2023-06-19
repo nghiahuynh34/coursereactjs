@@ -7,7 +7,7 @@ import { logo } from "../../assets/image";
 // import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Button from "../../components/Layout/components/Button";
-import { faArrowRight, faChevronRight, faStar } from '@fortawesome/free-solid-svg-icons';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
 
 const cx = classNames.bind(styles)
 function manageCourses() {
@@ -105,14 +105,14 @@ function manageCourses() {
                             return (<section key={eng._id} className={cx('module-col', 'module-c-12', 'module-m-4', 'module-l-3', 'res-module')}>
                                 <div className={cx('item', 'course-item')}>
                                     <div className={cx('image-content')}>
-                                        <Link className={cx('thumb', 'has-link')} to={'/Learning/' + eng.slug} target='_self' style={{ backgroundImage: `url(${eng.image})` }}>
-                                            <Button normal className={cx('btn', 'cta-btn')} to={'/Learning/' + eng.slug}>Chỉnh sửa</Button>
+                                        <Link className={cx('thumb', 'has-link')} to={'/admin/manage-courses/' + eng.slug} target='_self' style={{ backgroundImage: `url(${eng.image})` }}>
+                                            <button className={cx('btn', 'cta-btn')} >Chỉnh sửa</button>
                                         </Link>
                                     </div>
                                     <div className={cx('content-wrapper')}>
-                                        <Link to={'/Learning/' + eng.slug} className={cx('context-content')}>
+                                        <Link to={'/admin/manage-courses/' + eng.slug} className={cx('context-content')}>
                                             <h3 className={cx('title')}>
-                                                <Link target='_self' to={'/Learning/' + eng.slug}>{eng.name}</Link>
+                                                {eng.name}
                                             </h3>
                                             <div className={cx('stars')}>
                                                 <FontAwesomeIcon icon={faStar} className={cx('fix-star')} />
@@ -130,7 +130,7 @@ function manageCourses() {
                                         </Link>
                                         <div className={cx('author-content')}>
                                             <span>Tác giả/Dịch giả: </span>
-                                            <Link className={cx('father-logo')} to={'/Learning/' + eng.slug}>
+                                            <Link className={cx('father-logo')} to={'/admin/manage-courses/' + eng.slug}>
                                                 <img className={cx('logo-content')} src={logo} alt='logo' />
                                             </Link>
                                         </div>

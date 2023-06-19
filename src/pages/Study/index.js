@@ -14,7 +14,7 @@ import { logo } from '../../assets/image';
 const cx = classNames.bind(styles)
 
 function Study() {
-    const allCoures = JSON.parse(localStorage.getItem('AllCourses'))
+    // const allCoures = JSON.parse(localStorage.getItem('AllCourses'))
     const user = JSON.parse(localStorage.getItem('currentUser'))
 
     return <> <section className={cx('module-grid', 'module-fullwidth')} style={{ maxWidth: '1920px' }}>

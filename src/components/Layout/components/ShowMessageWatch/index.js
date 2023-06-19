@@ -1,7 +1,7 @@
 import classNames from "classnames/bind"
 import styles from './ShowMessageWatch.module.scss';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faExclamationCircle, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faExclamationCircle } from "@fortawesome/free-solid-svg-icons";
 import { useContext } from 'react';
 import { useNavigate } from "react-router-dom";
 import { StoreContext } from '../../../../store';

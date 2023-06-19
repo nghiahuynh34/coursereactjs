@@ -176,7 +176,7 @@ function Home() {
                                     <div className={cx('item', 'course-item')}>
                                         <div className={cx('image-content')}>
                                             <Link className={cx('thumb', 'has-link')} to={val.link} target='_self' style={{ backgroundImage: `url(${val.img})` }}>
-                                                <Button normal className={cx('btn', 'cta-btn')} to={val.link}>{!!user.Username ? ('Tiếp tục học') : ('Bất đầu học')}</Button>
+                                                <Button normal className={cx('btn', 'cta-btn')} to={val.link}>{user.Username ? ('Tiếp tục học') : ('Bất đầu học')}</Button>
                                             </Link>
                                         </div>
                                         <div className={cx('content-wrapper')}>

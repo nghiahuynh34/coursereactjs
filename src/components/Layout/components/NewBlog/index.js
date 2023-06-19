@@ -44,7 +44,6 @@ function NewBlog() {
             context.setLoading(false)
             context.setAlertMassage(true)
         }, 3000)
-        context.setAlertMassage(false)
         context.setLoading(true)
         setTitle('')
         context.setGetBlog('')
@@ -54,7 +53,10 @@ function NewBlog() {
 
     return (context.newBlog && <div>
         <div className={cx('modal', 'fade-in', 'medium')}>
-            <div onClick={context.handleNewlog} className={cx('close')}>&times;</div>
+            <div onClick={() => {
+                context.setNewBlog(false)
+                context.setAlertMassage(false)
+            }} className={cx('close')}>&times;</div>
             <div className={cx('content')}>
                 <header className={cx('header')}>
                     <h2 className={cx('heading')}>Tạo Bài Viết Mới</h2>
@@ -75,7 +77,10 @@ function NewBlog() {
                             onChange={(e) => setTag(e.target.value)}
                         />
                         <div className={cx('bnt-actions')}>
-                            <button type="button" onClick={context.handleNewlog} className={cx('btn-cancel')}>Hủy Bỏ</button>
+                            <button type="button" onClick={() => {
+                                context.setNewBlog(false)
+                                context.setAlertMassage(false)
+                            }} className={cx('btn-cancel')}>Hủy Bỏ</button>
                             {check ? (<button onClick={handleSentBlog} className={cx('btn-post')}>Đăng Bài</button>) : (<button disabled className={cx('btn-post', 'disable')}>Đăng Bài</button>)}
                             {/* <button onClick={handleSentBlog} disabled className={cx('btn-post')}>Đăng Bài</button> */}
                         </div>
@@ -83,7 +88,10 @@ function NewBlog() {
                 </div>
             </div>
         </div>
-        <div className={cx('overlay', 'fade-in', 'close-when-click')} onClick={context.handleNewlog}></div>
+        <div className={cx('overlay', 'fade-in', 'close-when-click')} onClick={() => {
+            context.setNewBlog(false)
+            context.setAlertMassage(false)
+        }}></div>
         <Loading />
         <AlertMassage message="Đăng bài viết thành công" content="Thành công!" />
     </div>)

@@ -1,4 +1,4 @@
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import styles from './Setting.module.scss'
 import classNames from "classnames/bind";
 import 'bootstrap/dist/css/bootstrap.min.css';

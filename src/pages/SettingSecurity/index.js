@@ -45,7 +45,7 @@ function Setting() {
                                     </div>
                                 </div>
                                 <div className={cx('field-bnt')}>
-                                    <button className={cx('field-button')}><img className={cx('google')} src={G} />  Liên kết Google</button>
+                                    <button className={cx('field-button')}><img className={cx('google')} src={G} alt='logo' />  Liên kết Google</button>
                                 </div>
                             </div>
                             <div className={cx('field-wrapper')}>
