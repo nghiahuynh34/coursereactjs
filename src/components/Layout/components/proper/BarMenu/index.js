@@ -2,7 +2,7 @@
 import classNames from 'classnames/bind'
 import styles from './BarMenu.module.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faXmark, faBookOpenReader, faCircleExclamation, faFileSignature } from '@fortawesome/free-solid-svg-icons'
+import { faXmark, faBookOpenReader, faCircleExclamation, faFileSignature, faPen, faGear, faShieldHalved } from '@fortawesome/free-solid-svg-icons'
 import { Link, NavLink } from 'react-router-dom'
 import ConfigRoutes from '../../../../../config/routes'
 import { menuItems, navLinkStyle } from "../../../DefaultLayout/Sidebar/menuItems"
@@ -58,6 +58,17 @@ function BarMenu() {
                                         <span>Khóa học của tôi</span>
                                     </NavLink>
                                 </li>
+                                <li className={cx('item-child')}>
+                                    <button onClick={() => {
+                                        context.setNewBlog(true)
+                                        context.setBarmenu(false)
+                                    }} className={cx('sidebar-item')} >
+                                        <em>
+                                            <FontAwesomeIcon icon={faPen} />
+                                        </em>
+                                        <span>Viết bài</span>
+                                    </button>
+                                </li>
                             </ul>}
                         <ul className={cx('details', 'detail-list')}>
                             {
@@ -94,15 +105,16 @@ function BarMenu() {
                                 <li className={cx('item-child')}>
                                     <NavLink style={navLinkStyle} to={ConfigRoutes.setting} className={cx('sidebar-item')} >
                                         <em>
-                                            <FontAwesomeIcon icon={faFileSignature} />
+                                            <FontAwesomeIcon icon={faGear} />
                                         </em>
                                         <span>Cài đặt tài khoản</span>
                                     </NavLink>
-                                </li> &&
+                                </li>}
+                            {Username &&
                                 <li className={cx('item-child')}>
                                     <NavLink style={navLinkStyle} to={ConfigRoutes.Security} className={cx('sidebar-item')} >
                                         <em>
-                                            <FontAwesomeIcon icon={faFileSignature} />
+                                            <FontAwesomeIcon icon={faShieldHalved} />
                                         </em>
                                         <span>Bảo mật và đăng nhập</span>
                                     </NavLink>

@@ -83,7 +83,8 @@ function Provider({ children }) {
         handleList,
         handleNewlog,
         setMessageWatch,
-        setGetBlog
+        setGetBlog,
+        setBarmenu
     }
     return (<Context.Provider value={value}>
         {children}

@@ -4,7 +4,7 @@ import ConfigRoutes from '../../config/routes'
 import { Link } from 'react-router-dom';
 import Button from '../../components/Layout/components/Button';
 import robot from '../../assets/image/robot.png'
-// import { dataLinkImage } from '../Home/data';
+import { dataLinkImage, EnglishLinkImage } from '../Home/data';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronRight, faArrowRight, faStar } from '@fortawesome/free-solid-svg-icons';
 import NewFeedButton from '../../components/Layout/components/NewFeed/NFButton';
@@ -41,7 +41,7 @@ function Study() {
                 </div>
                 <div className={cx('body')}>
                     <section className={cx('module-row')}>
-                        {allCoures.topics.map((val) => {
+                        {/* {allCoures.topics.map((val) => {
 
                             return (<section key={val._id} className={cx('module-col', 'module-c-12', 'module-m-4', 'module-l-3', 'res-module')}>
                                 <div className={cx('item', 'course-item')}>
@@ -81,7 +81,42 @@ function Study() {
 
 
                         })
-                        }
+                        } */}
+                        {dataLinkImage.map((val, index) => <section key={val.index} className={cx('module-col', 'module-c-12', 'module-m-4', 'module-l-3', 'res-module')}>
+                            <div className={cx('item', 'course-item')}>
+                                <div className={cx('image-content')}>
+                                    <Link className={cx('thumb', 'has-link')} to={val.link} target='_self' style={{ backgroundImage: `url(${val.img})` }}>
+                                        <button className={cx('btn', 'cta-btn')} >{!!user.Username ? ('Tiếp tục học') : ('Bất đầu học')}</button>
+                                    </Link>
+                                </div>
+                                <div className={cx('content-wrapper')}>
+                                    <Link to={val.link} className={cx('context-content')}>
+                                        <h3 className={cx('title')}>
+                                            {val.title}
+                                        </h3>
+                                        <div className={cx('stars')}>
+                                            <FontAwesomeIcon icon={faStar} className={cx('fix-star')} />
+                                            <FontAwesomeIcon icon={faStar} className={cx('fix-star')} />
+                                            <FontAwesomeIcon icon={faStar} className={cx('fix-star')} />
+                                            <FontAwesomeIcon icon={faStar} className={cx('fix-star')} />
+                                            <FontAwesomeIcon icon={faStar} className={cx('fix-star')} />
+                                            <span className={cx('text-mutes')}>
+                                                <span className={cx('fix-font')}>5.0</span>
+                                            </span>
+                                        </div>
+                                        <div className={cx('slogan')}>
+                                            <span className={cx('text-slogan')}>From LE</span>
+                                        </div>
+                                    </Link>
+                                    <div className={cx('author-content')}>
+                                        <span>Tác giả/Dịch giả: </span>
+                                        <Link className={cx('father-logo')} to={val.link}>
+                                            <img className={cx('logo-content')} src={logo} alt='logo' />
+                                        </Link>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>)}
                     </section>
                 </div>
             </div>
@@ -100,7 +135,7 @@ function Study() {
                 </div>
                 <div className={cx('body')}>
                     <section className={cx('module-row')}>
-                        {allCoures.english.map((eng) => {
+                        {/* {allCoures.english.map((eng) => {
                             return (<section key={eng._id} className={cx('module-col', 'module-c-12', 'module-m-4', 'module-l-3', 'res-module')}>
                                 <div className={cx('item', 'course-item')}>
                                     <div className={cx('image-content')}>
@@ -130,6 +165,45 @@ function Study() {
                                         <div className={cx('author-content')}>
                                             <span>Tác giả/Dịch giả: </span>
                                             <Link className={cx('father-logo')} to={'/Learning/' + eng.slug}>
+                                                <img className={cx('logo-content')} src={logo} alt='logo' />
+                                            </Link>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>)
+
+                        })
+                        } */}
+                        {EnglishLinkImage.map((eng, index) => {
+                            return (<section key={index} className={cx('module-col', 'module-c-12', 'module-m-4', 'module-l-3', 'res-module')}>
+                                <div className={cx('item', 'course-item')}>
+                                    <div className={cx('image-content')}>
+                                        <Link className={cx('thumb', 'has-link')} to={eng.link} target='_self' style={{ backgroundImage: `url(${eng.img})` }}>
+                                            <button className={cx('btn', 'cta-btn')}>{user.Username ? ('Tiếp tục học') : ('Bất đầu học')}</button>
+                                        </Link>
+                                    </div>
+                                    <div className={cx('content-wrapper')}>
+                                        <Link to={eng.link} className={cx('context-content')}>
+                                            <h3 className={cx('title')}>
+                                                {eng.title}
+                                            </h3>
+                                            <div className={cx('stars')}>
+                                                <FontAwesomeIcon icon={faStar} className={cx('fix-star')} />
+                                                <FontAwesomeIcon icon={faStar} className={cx('fix-star')} />
+                                                <FontAwesomeIcon icon={faStar} className={cx('fix-star')} />
+                                                <FontAwesomeIcon icon={faStar} className={cx('fix-star')} />
+                                                <FontAwesomeIcon icon={faStar} className={cx('fix-star')} />
+                                                <span className={cx('text-mutes')}>
+                                                    <span className={cx('fix-font')}>5.0</span>
+                                                </span>
+                                            </div>
+                                            <div className={cx('slogan')}>
+                                                <span className={cx('text-slogan')}>From LE</span>
+                                            </div>
+                                        </Link>
+                                        <div className={cx('author-content')}>
+                                            <span>Tác giả/Dịch giả: </span>
+                                            <Link className={cx('father-logo')} to={eng.link}>
                                                 <img className={cx('logo-content')} src={logo} alt='logo' />
                                             </Link>
                                         </div>

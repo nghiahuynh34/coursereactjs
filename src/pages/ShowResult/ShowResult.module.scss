@@ -78,8 +78,8 @@
 
     span {
         color: #454240;
-        font-size: 1.4rem;
-        font-weight: 500;
+        font-size: 2.2rem;
+        font-weight: 800;
         opacity: .8;
         padding: 0 20px;
     }
@@ -246,5 +246,40 @@
 
     a {
         color: #fff;
+    }
+}
+
+@media screen and (max-width:900px) {
+    .wellcome-left {
+        display: none;
+    }
+
+    .wellcome-button-wrapper {
+        width: 50%;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width:655px) {
+
+    .button-title {
+        font-size: 1.8rem !important;
+    }
+
+    .wellcome-button-wrapper {
+        width: 70%;
+
+    }
+}
+
+@media screen and (max-width:370px) {
+
+    .wellcome-right-main {
+        font-size: 2rem;
+    }
+
+    .wellcome-button-wrapper {
+        width: 100%;
+
     }
 }

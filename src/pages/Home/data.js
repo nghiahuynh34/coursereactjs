@@ -129,7 +129,7 @@ export const EnglishLinkImage = [
     {
         img: 'http://localhost:3001/static/media/basicE.ddaee2101a1783afd88b.png',
         title: 'Nền tảng tiếng anh cho người mới bất đầu',
-        link: '/Learning/nen-tang-tieng-anh-cho-nguoi-moi-bat-daus'
+        link: '/Learning/nen-tang-tieng-anh-cho-nguoi-moi-bat-dau'
     },
     {
         img: 'http://localhost:3001/static/media/englishmethod.2ff01a1d13c304df6850.png',

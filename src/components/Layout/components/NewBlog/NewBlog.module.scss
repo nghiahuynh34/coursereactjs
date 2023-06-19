@@ -220,21 +220,23 @@
 
 }
 
-@media (min-width:0) and (max-width:550px) {
 
-    .modal.medium {
-        min-width: 80vw;
-    }
-
-    .new-feed-item {
-        margin-bottom: 0;
-        height: calc(100vh - 300px);
-    }
-}
 
 @media (min-width:768px) and (max-width:912px) {
 
     .new-feed-item {
         height: auto;
+    }
+}
+
+@media screen and (min-width:0) and (max-width:735px) {
+
+    .modal.medium {
+        width: 80vw;
+    }
+
+    .new-feed-item {
+        margin-bottom: 0;
+        height: calc(100vh - 300px);
     }
 }

@@ -5,7 +5,7 @@
     position: fixed;
     will-change: opacity, transform;
     z-index: 999;
-    animation: slideInBottom ease .7s;
+    animation: slideInBottom ease .4s;
 
 }
 
@@ -20,6 +20,7 @@
     left: 40%;
     width: 400px;
     border: 1px solid #c8c7c7;
+    box-shadow: 0 0 5px white;
     top: 35%;
 
 

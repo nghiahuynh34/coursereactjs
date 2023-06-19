@@ -37,7 +37,6 @@ function Learning() {
         setPlayVideo(true)
     }
 
-
     useEffect(() => {
         axios.get("http://localhost:3000/course/" + slug, {
             headers: {
@@ -46,11 +45,7 @@ function Learning() {
         })
             .then(res => {
                 if (res.data.err === 0) {
-                    // navigate({
-                    //     pathname: '/Login',
-                    // })
                     context.setMessageWatch(true)
-
                 } else {
                     context.setMessageWatch(false)
                     setCourse([...res.data.data])
@@ -61,11 +56,9 @@ function Learning() {
                     })
                     setactive("stepitem-active")
                 }
-
             })
             .catch(() => {
                 context.setMessageWatch(true)
-
             })
 
         // eslint-disable-next-line

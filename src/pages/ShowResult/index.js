@@ -58,7 +58,7 @@ function ShowResult() {
                                     <span>{Username}!</span></h1>
                                 <p><span className={cx('wellcome-right-main')}>Chào mừng bạn đến với cộng đồng
                                     <strong> LE - Học Lập trình - Học mọi thứ</strong></span>
-                                    <span>nơi học lập trình miễn phí, hiệu quả và thiết thực</span></p>
+                                    <span  className={cx('wellcome-right-main')}>nơi học lập trình miễn phí, hiệu quả và thiết thực</span></p>
                                 <p>Đăng ký các khóa học,
                                     <br></br>
                                     cùng nhau trải nghiệm những bài học thứ vị

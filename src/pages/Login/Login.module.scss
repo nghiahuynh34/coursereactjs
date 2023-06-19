@@ -277,3 +277,9 @@
         width: 100%;
     }
 }
+
+@media (min-width:0) and (max-width:280px) {
+    .content {
+        padding: 10px 16px;
+    }
+}
