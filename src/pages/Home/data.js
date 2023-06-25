@@ -1,66 +1,49 @@
-export const dataDigitalBestSeller = [
+export const dataSlider = [
     {
         id: 1,
-        title: 'Mario Kart™ 8 Deluxe',
-        price: '$59.99',
-        category: 'Nintendo Switch',
+        title: 'slider',
         linkImg:
             'https://i.ytimg.com/vi/oBt53YbR9Kk/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCL5WCn8pV77dpK5rr0fx5FXjt0fA',
     },
     {
         id: 2,
-        title: 'TRIANGLE STRATEGY™',
-        price: '$59.99',
-        category: 'Nintendo Switch',
+        title: 'slider',
         linkImg:
             'https://i.ytimg.com/vi/IXVmc4WITck/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBDUl7Fodb8Uuo7hc8nmYJEL8tt2Q',
     },
     {
         id: 3,
-        title: 'Pokémon™ Legends: Arceus',
-        price: '$59.99',
-        category: 'Nintendo Switch',
+        title: 'slider',
         linkImg:
             'https://i.ytimg.com/vi/HGOBQPFzWKo/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCEYVC6eRlCzZ1s5pDKOnOJEWpV_A',
     },
     {
         id: 4,
-        title: 'Super Mario™ 3D World + Bowser’s Fury',
-        price: '$59.99',
-        category: 'Nintendo Switch',
+        title: 'slider',
         linkImg:
             'https://i.ytimg.com/vi/dyFVwXROzZk/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDW5lBP6QVGoH5WyLcJ5LluaxW1OA',
     },
     {
         id: 5,
-        title: 'Cuphead',
-        price: '$19.99',
-        category: 'Nintendo Switch',
+        title: 'slider',
         linkImg:
             'https://i.ytimg.com/vi/-TkoO8Z07hI/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDsK1xCcMf_t--wt5muYnnPgUHOPA',
     },
     {
         id: 6,
-        title: 'Minecraft',
-        price: '$29.99',
-        category: 'Nintendo Switch',
+        title: 'slider',
         linkImg:
             'https://i.ytimg.com/vi/x2kwp-_m17I/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBd1aWgskEUBEmFA4fgferElPkHmA',
     },
     {
         id: 7,
-        title: 'Mario + Rabbids® Kingdom Battle',
-        price: '$59.99',
-        category: 'Nintendo Switch',
+        title: 'slider',
         linkImg:
             'https://i.ytimg.com/vi/xk4_1vDrzzo/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDIGC1UnH_XVz5NaWdKYCpeXLuUYQ',
     },
     {
         id: 8,
-        title: 'Unravel Two',
-        price: '$59.99',
-        category: 'Nintendo Switch',
-        sale: 63, //percent
+        title: 'slider',
         linkImg:
             'https://files.fullstack.edu.vn/f8-prod/courses/3.png',
     },

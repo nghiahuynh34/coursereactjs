@@ -1,15 +1,15 @@
 import classNames from "classnames/bind"
 import styles from './NewBlog.module.scss'
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 // import { Link } from "react-router-dom"
 // import Configroutes from '../../../../config/routes'
 
 // import { robot } from '../../../../assets/image'
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 // import { faCheck } from "@fortawesome/free-solid-svg-icons"
+
 import { StoreContext } from '../../../../store'
 import DraftEditor from "../Editor/BraftEditor";
-import { useState } from "react";
 import { isEmpty } from 'validator'
 import Loading from "../Loading";
 import AlertMassage from "../AlertMassage";
@@ -70,6 +70,7 @@ function NewBlog() {
                         <div className={cx('new-feed-wrapper', 'new-feed-content')}>
                             <p className={cx('new-feed-title')}>Nội dung</p>
                             <DraftEditor mesage="" />
+
                         </div>
                         <h4 className={cx('new-feed-title', 'fix-margin')}>Thẻ</h4>
                         <input type="text" placeholder="Tag" className={cx('input-blog')}

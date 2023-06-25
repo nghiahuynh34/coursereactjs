@@ -17,8 +17,8 @@ function Provider({ children }) {
     const [newBlog, setNewBlog] = useState(false)
     const [messageWatch, setMessageWatch] = useState(false)
     const [getBlog, setGetBlog] = useState('')
-
-
+    const [upImage, setUpImage] = useState(false)
+    const [comment, setComment] = useState('')
 
 
     const handleShow = () => {
@@ -51,6 +51,10 @@ function Provider({ children }) {
     const handleNewlog = () => {
         setNewBlog(!newBlog)
     }
+    const handleUpImage = () => {
+        setUpImage(!upImage)
+
+    }
 
 
     const value = {
@@ -68,6 +72,8 @@ function Provider({ children }) {
         newBlog,
         messageWatch,
         getBlog,
+        upImage,
+        comment,
         setNewBlog,
         setShowChatBox,
         setShow,
@@ -84,7 +90,10 @@ function Provider({ children }) {
         handleNewlog,
         setMessageWatch,
         setGetBlog,
-        setBarmenu
+        setBarmenu,
+        handleUpImage,
+        setComment
+
     }
     return (<Context.Provider value={value}>
         {children}

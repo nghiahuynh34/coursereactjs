@@ -91,7 +91,7 @@ function Setting() {
                                 <div className={cx('field-input')}>
                                     <h3 className={cx('field-label')}>Username</h3>
                                     <div className={cx('field-description')}>
-                                        <input type='text' className={cx("field-input-content")} placeholder='thêm tên của bạn' value={user.Username?.replaceAll(" ", "")} maxLength='50' disabled />
+                                        <input type='text' className={cx("field-input-content")} placeholder='thêm tên của bạn' value={user.nickname} maxLength='50' disabled />
                                         <div className={cx("description")}>
 
                                             <p><span className={cx('field-url')}>URL: </span>http://localhost:3001/@{user.userUsername?.replaceAll(" ", "")}</p>

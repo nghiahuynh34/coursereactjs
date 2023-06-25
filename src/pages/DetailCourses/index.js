@@ -7,7 +7,7 @@ import { useContext, useEffect, useState } from 'react';
 import { StoreContext } from '../../store';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { faArrowRight, faBars, faTrash, faPenFancy, faXmark, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faArrowRight, faBars, faTrash, faPenFancy, faXmark, faPlus, faRefresh } from '@fortawesome/free-solid-svg-icons';
 
 import axios from 'axios';
 // import ShowMessageWatch from '../../components/Layout/components/ShowMessageWatch';
@@ -46,32 +46,67 @@ function Learning() {
                     // navigate({
                     //     pathname: '/Login',
                     // })
-                    context.setMessageWatch(true)
+                    // context.setMessageWatch(true)
+                    alert("lỗi server")
 
                 } else {
-                    context.setMessageWatch(false)
                     setCourse([...res.data.data])
                     // setTopics({ ...res.data.topics })
-                    // navigate({
-                    //     pathname: location.pathname,
-                    //     search: `?id=${res.data.data[0]._id}`,
-                    // })
+                    navigate({
+                        pathname: location.pathname,
+                        search: '',
+                    })
                     setactive("stepitem-active")
                 }
 
             })
             .catch(() => {
-                context.setMessageWatch(true)
+                alert("lỗi server")
 
             })
-
         // eslint-disable-next-line
     }, [slug])
 
 
 
-    useEffect(() => {
-        axios.get("http://localhost:3000/api/course/" + searchPar.get('id'))
+    const handleSubmitEdit = () => {
+        const data = {
+            name: name,
+            description: description,
+            videoID: videoID,
+            level: level,
+            image: image
+        }
+        axios.put("http://localhost:3000/course/edit/" + searchPar.get('id'), {
+            headers: {
+                'access-token': localStorage.getItem('token')
+            }, data: data
+        })
+            .then(res => {
+                if (res.data.success === 1) {
+                    alert("Sửa thành công")
+                }
+                else if (res.data.err === 0) {
+                    console.log('ok')
+                }
+            })
+            .catch(() => {
+                alert("lỗi server")
+            })
+    }
+
+    const onHandleRefresh = () => {
+        setName('')
+        setLevel('')
+        setImage('')
+        setDescription('')
+        SetvideoID('')
+        navigate({
+            pathname: '/admin/manage-courses/' + slug,
+        })
+    }
+    function handleOnlickId(id) {
+        axios.get("http://localhost:3000/api/course/" + id)
             .then(res => {
                 setCourseDetail({ ...res.data.course })
                 setName(res.data.course.name)
@@ -83,11 +118,8 @@ function Learning() {
             .catch(() => {
                 alert("lỗi server")
             })
-        // eslint-disable-next-line
-    }, [searchPar.get('id')])
-
-
-    const handleSubmitEdit = () => {
+    }
+    const handleAddCourse = () => {
         const data = {
             name: name,
             description: description,
@@ -95,20 +127,43 @@ function Learning() {
             level: level,
             image: image
         }
-        console.log(data)
-        axios.put("http://localhost:3000/course/edit/" + searchPar.get('id'), {
+        axios.put('http://localhost:3000/course/Topic/' + slug, {
             headers: {
-
                 'access-token': localStorage.getItem('token')
             }, data: data
         })
             .then(res => {
-                if (res.data.success === 1)
-                    alert("thanh cong")
+                if (res.data.success === 1) {
+                    alert("thêm khóa học thành công")
+
+                } else {
+                    alert("lỗi thêm khóa học thất bại")
+                }
             })
-            .catch(() => {
-                alert("lỗi server")
+            .catch(() => alert('lỗi server'))
+    }
+    const handleDeleteCourse = () => {
+
+        axios.delete(`http://localhost:3000/course/force/` + searchPar.get('id'), {
+            headers: {
+                'access-token': localStorage.getItem('token')
+            },
+            data: {
+                name: name,
+                description: description,
+                videoID: videoID,
+                level: level,
+                image: image
+            }
+        })
+            .then(res => {
+                if (res.data.success === 1) {
+                    alert("Xóa khóa học thành công")
+                } else {
+                    alert("lỗi xóa khóa học thất bại")
+                }
             })
+            .catch(() => alert('lỗi server'))
     }
 
     return <> <section className={cx('module-grid', 'module-fullwidth')} style={{ maxWidth: '1920px' }}>
@@ -138,10 +193,14 @@ function Learning() {
                 <div className={cx('body')}>
                     {course.map((crs, index) => <div key={crs._id} className={cx('trackitem-step-list', 'trackitem-open')}>
                         <div className={cx('stepitem-wrapper', searchPar.get('id') === crs._id ? active : '')}>
-                            <div onClick={() => navigate({
-                                pathname: location.pathname,
-                                search: `?id=${crs._id}`,
-                            })} className={cx('stepitem-info')}>
+                            <div onClick={() => {
+                                handleOnlickId(crs._id)
+                                navigate({
+                                    pathname: location.pathname,
+                                    search: `?id=${crs._id}`,
+                                })
+                            }
+                            } className={cx('stepitem-info')}>
                                 <h3 className={cx('stepitem-title')}>{index + 1}.{crs.name}</h3>
 
                             </div>
@@ -177,7 +236,6 @@ function Learning() {
                                             onChange={(e) => setName(e.target.value)}
                                         />
                                     </div>
-
                                 </div>
                                 <div className={cx('text-input')}>
                                     <label className={cx('label')}>Video ID</label>
@@ -185,7 +243,7 @@ function Learning() {
                                         <input
                                             type='text'
                                             value={videoID}
-                                            placeholder='Nhập videoID...'
+                                            placeholder='Nhập videoID trên youtube...'
                                             className={cx('inputs', 'inputss')}
                                             // onBlur={onBlurEmail}
                                             onChange={(e) => SetvideoID(e.target.value)}
@@ -205,10 +263,8 @@ function Learning() {
                                             className={cx('inputs', 'inputss')}
                                             // onBlur={onBlurPhone}
                                             onChange={(e) => setLevel(e.target.value)}
-
                                         />
                                     </div>
-
                                 </div>
                                 <div className={cx('text-input')}>
                                     <label className={cx('label')}>Ảnh</label>
@@ -220,12 +276,11 @@ function Learning() {
                                             className={cx('inputs', 'inputss')}
                                             // onBlur={onBlurPhone}
                                             onChange={(e) => setImage(e.target.value)}
+                                            disabled={searchPar.get('id') ? false : true}
 
                                         />
                                     </div>
-
                                 </div>
-
                             </div>
                         </div>
                         <div className={cx('textarea-input')}>
@@ -266,11 +321,15 @@ function Learning() {
 
         </div>
         <div className={cx('actionBar-wrapper')}>
-            <button className={cx('actionBar-bnt', 'actionBar-success')}>
-                <FontAwesomeIcon icon={faPlus} />
-                <span>Xóa</span>
+            <button onClick={onHandleRefresh} className={cx('actionBar-bnt', 'actionBar-refres')}>
+                <FontAwesomeIcon icon={faRefresh} />
+                <span>Refresh</span>
             </button>
-            <button className={cx('actionBar-bnt', 'actionBar-primary')}>
+            <button onClick={handleAddCourse} className={cx('actionBar-bnt', 'actionBar-success')}>
+                <FontAwesomeIcon icon={faPlus} />
+                <span>Thêm</span>
+            </button>
+            <button onClick={handleDeleteCourse} className={cx('actionBar-bnt', 'actionBar-primary')}>
                 <FontAwesomeIcon icon={faTrash} />
                 <span>Xóa</span>
             </button>

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useContext, useState } from "react";
 import { StoreContext } from '../../../../store'
 import {
     Editor,
@@ -19,24 +19,15 @@ const DraftEditor = ({ mesage }) => {
             convertFromRaw({
                 blocks: [
                     {
-                        key: "3eesq",
-                        text: context.getBlog,
-                        type: "unstyled",
+                        key: "",
+                        text: context.getBlog || context.comment,
+                        type: "",
                         depth: 0,
                         inlineStyleRanges: [
                         ],
                         entityRanges: [],
                         data: {},
-                    },
-                    // {
-                    //     key: "9adb5",
-                    //     text: "",
-                    //     type: "header-one",
-                    //     depth: 0,
-                    //     inlineStyleRanges: [],
-                    //     entityRanges: [],
-                    //     data: {},
-                    // },
+                    }
                 ],
                 entityMap: {},
             })
@@ -45,18 +36,15 @@ const DraftEditor = ({ mesage }) => {
 
 
     );
-    const editor = useRef(null);
-    console.log(editorState)
-    useEffect(() => {
+    // const editor = useRef(null);
+    // useEffect(() => {
+    //     focusEditor();
+    // }, []);
 
+    // const focusEditor = () => {
+    //     editor.current.focus();
 
-        focusEditor();
-    }, []);
-
-    const focusEditor = () => {
-        editor.current.focus();
-
-    };
+    // };
 
     const handleKeyCommand = (command) => {
         const newState = RichUtils.handleKeyCommand(editorState, command);
@@ -124,13 +112,12 @@ const DraftEditor = ({ mesage }) => {
     };
 
     return (
-        <div className={cx("editor-wrapper")} onClick={focusEditor}>
+        <div className={cx("editor-wrapper")} >
             <Toolbar editorState={editorState} setEditorState={setEditorState} />
             <div className={cx("editor-container")}>
                 <Editor
-                    ref={editor}
                     placeholder={mesage}
-                    handleKeyCommand={cx(handleKeyCommand)}
+                    handleKeyCommand={handleKeyCommand}
                     editorState={editorState}
                     customStyleMap={cx(styleMap)}
                     textAlignment={context.getBlog}
@@ -139,6 +126,7 @@ const DraftEditor = ({ mesage }) => {
                         const contentState = editorState.getCurrentContent();
                         console.log(convertToRaw(contentState))
                         context.setGetBlog(convertToRaw(contentState).blocks[0].text);
+                        context.setComment(convertToRaw(contentState).blocks[0].text);
                         setEditorState(editorState);
                     }}
 

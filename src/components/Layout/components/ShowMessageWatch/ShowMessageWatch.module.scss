@@ -17,8 +17,8 @@
 .modal.medium {
 
     inset: auto;
-    left: 40%;
-    width: 400px;
+    left: 36%;
+
     border: 1px solid #c8c7c7;
     box-shadow: 0 0 5px white;
     top: 35%;
@@ -234,10 +234,10 @@
     cursor: pointer;
 }
 
-@media screen and (max-width:1000px) {
+@media screen and (max-width:1024px) {
     .modal.medium {
         // width: 40vw;
-        left: 27%;
+        left: 29%;
     }
 
 
@@ -246,7 +246,7 @@
 @media screen and (max-width:630px) {
     .modal.medium {
         // width: 25vw;
-        left: 15%;
+        left: 10%;
 
     }
 
@@ -277,6 +277,15 @@
     .modal.medium {
         width: 100%;
         left: 0;
+    }
+
+    .toast {
+        padding: 20px 0;
+    }
+
+    .toast__icon,
+    .toast__close {
+        padding: 0 10px;
     }
 
 

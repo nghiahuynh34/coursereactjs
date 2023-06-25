@@ -37,11 +37,13 @@ function Register() {
         if (isEmpty(pass)) {
             msg.pass = 'Vui lòng nhập mật khẩu'
         } else if (!isStrongPassword(pass)) {
-            msg.pass = 'Tối thiểu 8 chữ:ABcd123@'
+            validateMsg.pass = 'Tối thiểu 8 chữ:ABcd123@'
         }
 
         if (isEmpty(rePass)) {
             msg.rePass = 'Vui lòng nhập mật khẩu'
+        } else if (rePass !== pass) {
+            msg.rePass = 'Mật khẩu không khớp'
         }
         setValidateMsg({ ...msg, ...validateMsg })
 
@@ -104,10 +106,8 @@ function Register() {
     }
     const hanldSubmit = (e) => {
         const isValid = ValidatAll()
-        if (!isValid) {
+        if (!isValid || Object.keys(msg).length > 0) {
             e.preventDefault()
-
-            return
         }
         else {
             e.preventDefault()
@@ -131,7 +131,7 @@ function Register() {
                         validateMsg.email = res.data.msg
                         setValidateMsg({ ...validateMsg, ...msg })
                     } else {
-                        alert(res.data.msg)
+                        alert("Lỗi! Vui lòng xem lại thông tin của bạn")
                     }
                 })
                 .catch(() => {

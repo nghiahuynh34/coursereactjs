@@ -163,6 +163,26 @@
     z-index: 1;
 }
 
+.bnt-add-topics {
+    font-size: 1.6rem;
+    font-weight: 900;
+    border-radius: 4px;
+    background-color: #ffc945;
+    margin-right: 0;
+}
+
+.wrapper1 {
+    color: white !important;
+}
+
+.icon-add {
+    margin-right: 3px;
+}
+
+.bnt-add-topics:hover {
+    background-color: #ffba0c;
+}
+
 
 .thumb {
     background-color: rgba(0, 0, 0, .1) !important;

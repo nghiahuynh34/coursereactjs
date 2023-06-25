@@ -1,7 +1,8 @@
+
 const routes = {
     root: '/',
     Learning: '/Learning/:slug',
-    profile: '/@:nickname',
+    profile: '/:nickname',
     setting: '/setting/persional',
     Security: '/setting/Security',
     Notification: '/setting/Notification',
@@ -19,7 +20,8 @@ const routes = {
     FrontEnd: '/Learning-paths/FrontEnd',
     English: '/Learning-paths/English',
     MyOnwCourse: '/MyCourse',
-    DetailCourses: '/admin/manage-courses/:slug'
+    DetailCourses: '/admin/manage-courses/:slug',
+    ManageTopics: '/admin/manage-topics'
 }
 
 export default routes

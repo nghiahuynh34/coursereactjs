@@ -10,6 +10,8 @@ import VideoItem from '../VideoItem'
 import classNames from 'classnames/bind'
 import styles from './Search.module.scss'
 import { useDebounce } from '../../../../hooks'
+import { Link } from 'react-router-dom'
+import ConfigRoutes from '../../../../config/routes'
 
 
 const cx = classNames.bind(styles)
@@ -84,7 +86,7 @@ function Search() {
 
                     {serachResult.length > 0 && <><div className={cx('search-heading')}>
                         <h5>KHÓA HỌC</h5>
-                        <a href='/search'>Xem Thêm</a>
+                        <Link to={ConfigRoutes.study}>Xem Thêm</Link>
                     </div>
                         {serachResult.map((data) => {
                             return <CourseItem key={data._id} data={data} />
@@ -92,14 +94,14 @@ function Search() {
 
                         <div className={cx('search-heading')}>
                             <h5>BÀI VIẾT</h5>
-                            <a href='/search'>Xem Thêm</a>
+                            <Link to={ConfigRoutes.study}>Xem Thêm</Link>
                         </div>
                         <ArticleItem />
                         <ArticleItem />
 
                         <div className={cx('search-heading')}>
                             <h5>VIDEO</h5>
-                            <a href='/search'>Xem Thêm</a>
+                            <Link to={ConfigRoutes.study}>Xem Thêm</Link>
                         </div>
                         <VideoItem />
                         <VideoItem />

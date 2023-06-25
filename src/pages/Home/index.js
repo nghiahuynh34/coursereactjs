@@ -5,7 +5,7 @@ import "../../assets/slick/slick-theme.css";
 import "../../assets/slick/slick.css";
 import ConfigRoutes from '../../config/routes'
 import { useState, useEffect } from 'react';
-import { dataDigitalBestSeller, dataLinkImage, VideoLinkImage, EnglishLinkImage } from './data'
+import { dataSlider, dataLinkImage, VideoLinkImage, EnglishLinkImage } from './data'
 import { PreviousBtn, NextBtn } from './FixButton/fixButton';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight, faChevronRight, faComment, faEye, faStar, faThumbsUp } from '@fortawesome/free-solid-svg-icons';
@@ -16,15 +16,9 @@ import NewFeedButton from '../../components/Layout/components/NewFeed/NFButton';
 import GoTop from '../../components/Layout/components/GoTop';
 import ChatBox from '../../components/Layout/components/ChatBox'
 import axios from 'axios';
-// import { useNavigate } from 'react-router-dom'
-
 const cx = classNames.bind(styles)
 
-
-
-
 function Home() {
-    const [defaultImage, setDefaultImage] = useState({});
     const [datas, setDatas] = useState([]);
     const [dataEnglish, setDataEnglish] = useState([]);
     const user = JSON.parse(localStorage.getItem('currentUser'))
@@ -34,6 +28,9 @@ function Home() {
             .then(res => {
                 setDatas([...res.data.data1])
                 setDataEnglish([...res.data.data2])
+
+                const allDatas = { topics: [...res.data.data1], english: [...res.data.data2] }
+                localStorage.setItem("AllCourses", JSON.stringify(allDatas))
             })
             .catch(() => {
                 localStorage.removeItem('token');
@@ -41,8 +38,7 @@ function Home() {
                 localStorage.setItem('currentUser', JSON.stringify(data));
             })
     }, [])
-    const allDatas = { topics: [...datas], english: [...dataEnglish] }
-    localStorage.setItem("AllCourses", JSON.stringify(allDatas))
+
     const settings = {
         prevArrow: <PreviousBtn />,
         nextArrow: <NextBtn />,
@@ -51,7 +47,6 @@ function Home() {
         speed: 500,
         slidesToShow: 3,
         slidesToScroll: 3,
-        initialSlide: 0,
         autoplay: true,
         autoplaySpeed: 5000,
         responsive: [
@@ -82,13 +77,6 @@ function Home() {
             },
         ],
     };
-    const handleErrorImage = (data) => {
-        setDefaultImage((prev) => ({
-            ...prev,
-            [data.target.alt]: data.target.alt,
-            linkDefault: 'https://files.fullstack.edu.vn/f8-prod/courses/13/13.png',
-        }));
-    };
     return (
         <>
             <section className={cx('module-grid', 'module-fullwidth')} style={{ maxWidth: '1920px' }}>
@@ -96,19 +84,13 @@ function Home() {
                     <div className={cx('wraper-slide')}>
 
                         <Slider {...settings}>
-                            {dataDigitalBestSeller.map((item) => (
+                            {dataSlider.map((item) => (
                                 <div className={cx('body-card')}>
                                     <div className={cx("card-top")}>
                                         <img
-                                            src={
-                                                defaultImage[item.title] === item.title
-                                                    ? defaultImage.linkDefault
-                                                    : item.linkImg
-                                            }
+                                            src={item.linkImg}
                                             alt={item.title}
-                                            onError={handleErrorImage}
                                         />
-
                                     </div>
                                 </div>
                             ))}

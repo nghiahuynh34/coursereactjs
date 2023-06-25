@@ -13,7 +13,7 @@ const cx = classNames.bind(styles)
 
 function PathLearning() {
 
-    return <> <section className={cx('module-grid', 'module-fullwidth')} style={{ style: 'max-width: 1920px;' }}>
+    return <> <section className={cx('module-grid', 'module-fullwidth')} style={{ maxWidth: '1920px' }}>
 
         <div className={cx('wrapper-content')}>
             <div className={cx('content-top')}>

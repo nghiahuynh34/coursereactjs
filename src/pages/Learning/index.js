@@ -192,11 +192,12 @@ function Learning() {
             </p>
         </div>
         <div className={cx('actionBar-wrapper')}>
-            <button className={cx('actionBar-bnt', 'actionBar-disable')}>
+            <button className={cx('actionBar-bnt')}>
                 <FontAwesomeIcon icon={faChevronLeft} />
                 <span>Bài trước</span>
             </button>
-            <button className={cx('actionBar-bnt', 'actionBar-disable', 'actionBar-primary')}>
+            {/* 'actionBar-disable', */}
+            <button className={cx('actionBar-bnt', 'actionBar-primary')}>
                 <span>Bài tiếp theo</span>
                 <FontAwesomeIcon icon={faChevronRight} />
             </button>

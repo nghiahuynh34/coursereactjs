@@ -93,7 +93,6 @@ function Contact() {
         // setValidateMsg({ ...msg, ...validateMsg })
     }
 
-
     const hanldSubmit = (e) => {
         const isValid = ValidatAll()
         console.log(isValid)

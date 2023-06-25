@@ -13,7 +13,7 @@ import { logo } from "../../../../../assets/image"
 const cx = classNames.bind(styles)
 
 function ChatBoxBody() {
-    const storegaeComments = JSON.parse(localStorage.getItem('comments'))
+    const storegaeComments = JSON.parse(localStorage.getItem('chatbox'))
     const context = useContext(StoreContext)
     const [shadow, setShadow] = useState('')
     const [comment, setComment] = useState('')
@@ -22,7 +22,7 @@ function ChatBoxBody() {
         setComments(prev => {
             const newComments = [...prev, comment]
             const jsonComments = JSON.stringify(newComments)
-            localStorage.setItem('comments', jsonComments)
+            localStorage.setItem('chatbox', jsonComments)
             return newComments
         })
         setComment('')

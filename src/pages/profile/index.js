@@ -3,13 +3,38 @@ import classNames from "classnames/bind";
 import { HelloWorld } from '../../assets/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCamera, faUserGroup } from '@fortawesome/free-solid-svg-icons';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { dataLinkImage } from '../Home/data';
-
+import { useParams } from 'react-router-dom'
+import axios from 'axios';
+import { useEffect, useState, useContext } from 'react';
+import { UploadImage } from '../../components/Layout/components/proper'
+import { StoreContext } from '../../store';
 const cx = classNames.bind(styles)
-
 function Profile() {
-    const user = JSON.parse(localStorage.getItem('currentUser'))
+    const { nickname } = useParams()
+    const [user, setUser] = useState({})
+    const context = useContext(StoreContext)
+    const navigate = useNavigate()
+
+    useEffect(() => {
+        axios.get("http://localhost:3000/users/getUse/" + nickname,
+            {
+                headers: {
+                    'access-token': localStorage.getItem('token')
+                }
+            })
+            .then((res) => {
+                setUser(res.data.data)
+            }
+            ).catch(() => {
+                navigate({
+                    pathname: '/Login'
+                })
+            })
+        // eslint-disable-next-line
+    }, [nickname])
+
     return <div className={cx('profile-wrapper')}>
         <div className={cx('profile-content')}>
             <section className={cx('module-grid', 'module-fullwidth')} style={{ maxWidth: '1100px' }}>
@@ -24,10 +49,13 @@ function Profile() {
                             <span>{user.Username ? user.Username : ''}</span>
                         </div>
                     </div>
-                    <div className={cx('profile-bnt-change-cover')}>
-                        <FontAwesomeIcon className={cx('icon-fix', 'icon')} icon={faCamera} />
-                        <span className={cx('edit-image')}>Chỉnh sửa ảnh bìa</span>
-                    </div>
+                    <UploadImage>
+                        <div onClick={context.handleUpImage} className={cx('profile-bnt-change-cover')}>
+                            <FontAwesomeIcon className={cx('icon-fix', 'icon')} icon={faCamera} />
+                            <span className={cx('edit-image')}>Chỉnh sửa ảnh bìa</span>
+                        </div>
+                    </UploadImage>
+
                 </div>
                 <div className={cx('profile-container')}>
                     <section className={cx('module-row')}>

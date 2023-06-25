@@ -1,51 +1,58 @@
-import styles from './ManageUsers.module.scss'
+import styles from './ManageTopics.module.scss'
 import classNames from "classnames/bind";
 import ConfigRoutes from '../../config/routes'
-import { Link, useSearchParams, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useParams, useSearchParams, useLocation, useNavigate } from 'react-router-dom';
 import { logo } from '../../assets/image'
 import { useContext, useEffect, useState } from 'react';
 import { StoreContext } from '../../store';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowRight, faBars, faTrash, faPenFancy, faXmark, faPlus, faRefresh } from '@fortawesome/free-solid-svg-icons';
 
-import { faArrowRight, faBars, faTrash, faPenFancy, faXmark, faRefresh } from '@fortawesome/free-solid-svg-icons';
 
 import axios from 'axios';
 // import ShowMessageWatch from '../../components/Layout/components/ShowMessageWatch';
 const cx = classNames.bind(styles)
 
-function ManageUsers() {
+function Learning() {
     const context = useContext(StoreContext)
     const [searchPar] = useSearchParams()
-    const [users, setUsers] = useState([])
+    const [course, setCourse] = useState([])
+    const [courseDetail, setCourseDetail] = useState({})
     const [active, setactive] = useState('')
+
     const [name, setName] = useState('')
-    const [Country, setCountry] = useState('')
-    const [address, setAddress] = useState('')
+    const [subject, setSubject] = useState('')
+    const [description, setDescription] = useState('')
     const [image, setImage] = useState('')
-    const [email, setEmail] = useState('')
-    const [admin, setAdmin] = useState('')
-    const [phoneNumber, setPhoneNumber] = useState('')
-    const [nickname, setNickName] = useState('')
+    const [level, setLevel] = useState('')
+
     const location = useLocation()
     const navigate = useNavigate();
+    const { slug } = useParams()
 
 
     useEffect(() => {
-        axios.get("http://localhost:3000/users/AllUsers", {
+        axios.get("http://localhost:3000/me/stored/course", {
             headers: {
                 'access-token': localStorage.getItem('token')
             }
         })
             .then(res => {
-                if (res.data.err === 1) {
-                    alert(res.data.msg)
+                if (res.data.err === 0) {
+                    // navigate({
+                    //     pathname: '/Login',
+                    // })
+                    // context.setMessageWatch(true)
+                    alert("lỗi server")
 
                 } else {
-                    setUsers([...res.data.users])
-                    setactive("stepitem-active")
+                    setCourse([...res.data.data])
+                    // setTopics({ ...res.data.topics })
                     navigate({
-                        pathname: '/admin/manage-users',
+                        pathname: location.pathname,
+                        search: '',
                     })
+                    setactive("stepitem-active")
                 }
 
             })
@@ -54,23 +61,19 @@ function ManageUsers() {
 
             })
         // eslint-disable-next-line
-    }, [])
+    }, [slug])
 
 
 
     const handleSubmitEdit = () => {
         const data = {
-            Username: name,
-            nickname: nickname,
-            phoneNumber: phoneNumber,
-            admin: admin,
-            image: image,
-            address: address,
-            Country: Country,
-            email: email
+            name: name,
+            description: description,
+            subject: subject,
+            level: level,
+            image: image
         }
-        console.log(data)
-        axios.put(`http://localhost:3000/users/Admin/${searchPar.get('id')}/update`, {
+        axios.put(`http://localhost:3000/course//topic/${searchPar.get('id')}/edit`, {
             headers: {
                 'access-token': localStorage.getItem('token')
             }, data: data
@@ -90,44 +93,68 @@ function ManageUsers() {
 
     const onHandleRefresh = () => {
         setName('')
-        setAdmin('')
-        setAddress('')
+        setLevel('')
         setImage('')
-        setCountry('')
-        setEmail('')
-        setNickName('')
-        setPhoneNumber('')
-        navigate({
-            pathname: '/admin/manage-users',
-        })
+        setDescription('')
+        setSubject('')
+        // navigate({
+        //     pathname: '/admin/manage-courses/' + slug,
+        // })
     }
     function handleOnlickId(id) {
-        axios.get(`http://localhost:3000/users/${id}/edit`, {
+        axios.get("http://localhost:3000/course/getTopic/" + id, {
             headers: {
                 'access-token': localStorage.getItem('token')
             }
         })
             .then(res => {
-
-                setName(res.data.data.Username)
-                setAdmin(res.data.data.admin)
-                setAddress(res.data.data.address)
-                setImage(res.data.data.avatar)
-                setCountry(res.data.data.Country)
-                setEmail(res.data.data.email)
-                setNickName(res.data.data.nickname)
-                setPhoneNumber(res.data.data.phoneNumber)
+                setCourseDetail({ ...res.data.data })
+                setName(res.data.data.name)
+                setSubject(res.data.data.subject)
+                setDescription(res.data.data.description)
+                setImage(res.data.data.image)
+                setLevel(res.data.data.level)
             })
             .catch(() => {
                 alert("lỗi server")
             })
     }
+    const handleAddCourse = () => {
+        const data = {
+            name: name,
+            description: description,
+            subject: subject,
+            level: level,
+            image: image
+        }
+        axios.post('http://localhost:3000/course/store', {
+            headers: {
+                'access-token': localStorage.getItem('token')
+            }, data: data
+        })
+            .then(res => {
+                if (res.data.success === 1) {
+                    alert("thêm khóa học thành công")
+
+                } else {
+                    alert("Lỗi! Vui lòng điền đầy đủ thông tin")
+                }
+            })
+            .catch(() => alert('lỗi server'))
+    }
     const handleDeleteCourse = () => {
 
-        axios.delete(`http://localhost:3000/users/${searchPar.get('id')}`, {
+        axios.delete(`http://localhost:3000/course/force/${searchPar.get('id')}/topic`, {
             headers: {
                 'access-token': localStorage.getItem('token')
             },
+            data: {
+                name: name,
+                description: description,
+                subject: subject,
+                level: level,
+                image: image
+            }
         })
             .then(res => {
                 if (res.data.success === 1) {
@@ -158,23 +185,23 @@ function ManageUsers() {
         {context.list && <> <div className={cx('track-wrapper')}>
             <div className={cx('container')}>
                 <header className={cx('header')}>
-                    <h1 className={cx('heading')}>Tài khoản Users</h1>
+                    <h1 className={cx('heading')}>Các khóa học</h1>
                     <button className={cx('track-close-btn')}>
                         <FontAwesomeIcon onClick={context.handleList} icon={faXmark} />
                     </button>
                 </header>
                 <div className={cx('body')}>
-                    {users.map((user, index) => <div key={user._id} className={cx('trackitem-step-list', 'trackitem-open')}>
-                        <div className={cx('stepitem-wrapper', searchPar.get('id') === user._id ? active : '')}>
+                    {course.map((crs, index) => <div key={crs._id} className={cx('trackitem-step-list', 'trackitem-open')}>
+                        <div className={cx('stepitem-wrapper', searchPar.get('id') === crs._id ? active : '')}>
                             <div onClick={() => {
-                                handleOnlickId(user._id)
+                                handleOnlickId(crs._id)
                                 navigate({
                                     pathname: location.pathname,
-                                    search: `?id=${user._id}`,
+                                    search: `?id=${crs._id}`,
                                 })
                             }
                             } className={cx('stepitem-info')}>
-                                <h3 className={cx('stepitem-title')}>{index + 1}.{user.email}</h3>
+                                <h3 className={cx('stepitem-title')}>{index + 1}.{crs.name}</h3>
 
                             </div>
 
@@ -211,59 +238,38 @@ function ManageUsers() {
                                     </div>
                                 </div>
                                 <div className={cx('text-input')}>
-                                    <label className={cx('label')}>Nick name</label>
+                                    <label className={cx('label')}>Loại khóa học</label>
                                     <div className={cx('input-wrapper')}>
-                                        <input
-                                            type='text'
-                                            value={nickname || ''}
-                                            placeholder='Nhập nickname...'
-                                            className={cx('inputs', 'inputss', 'fix-fontsize')}
-                                            onChange={(e) => setNickName(e.target.value)}
-                                        />
-                                    </div>
-                                </div>
-                                <div className={cx('text-input')}>
-                                    <label className={cx('label')}>Điện thoại</label>
-                                    <div className={cx('input-wrapper')}>
-                                        <input
-                                            type='text'
-                                            value={phoneNumber}
-                                            placeholder='Nhập số điện thoại...'
-                                            className={cx('inputs', 'inputss', 'fix-fontsize')}
-                                            onChange={(e) => setPhoneNumber(e.target.value)}
-                                        />
-                                    </div>
-                                </div>
-                                <div className={cx('text-input')}>
-                                    <label className={cx('label')}>Địa chỉ</label>
-                                    <div className={cx('input-wrapper')}>
-                                        {/* <select className={cx('inputs', 'inputss', 'fix-fontsize')} value={subject} onChange={(e) => setSubject(e.target.value)}>
+                                        <select className={cx('inputs', 'inputss', 'fix-fontsize')} value={subject} onChange={(e) => setSubject(e.target.value)}>
                                             <option value="">-- Chọn loại khóa học --</option>
                                             <option value="English" >Tiếng anh</option>
                                             <option value="LT">Lập trình</option>
-                                        </select> */}
+                                        </select>
 
-                                        <input
+                                        {/* <input
                                             type='text'
-                                            value={address}
-                                            placeholder='Nhập địa chỉ...'
-                                            className={cx('inputs', 'inputss', 'fix-fontsize')}
+                                            value={videoID}
+                                            placeholder='Nhập videoID trên youtube...'
+                                            className={cx('inputs', 'inputss')}
                                             // onBlur={onBlurEmail}
-                                            onChange={(e) => setAddress(e.target.value)}
-                                        />
+                                            onChange={(e) => SetvideoID(e.target.value)}
+                                        /> */}
                                     </div>
 
                                 </div>
                             </div>
                             <div className={cx('form-2')}>
                                 <div className={cx('text-input')}>
-                                    <label className={cx('label')}>Quyền</label>
+                                    <label className={cx('label')}>Cấp độ</label>
                                     <div className={cx('input-wrapper')}>
-                                        <select className={cx('inputs', 'inputss', 'fix-fontsize')} value={admin} onChange={(e) => setAdmin(e.target.value)}>
-                                            <option value="">-- Chọn quyền --</option>
-                                            <option value="true" >Admin</option>
-                                            <option value="false">User</option>
-                                        </select>
+                                        <input
+                                            type='text'
+                                            value={level}
+                                            placeholder='Nhập cấp độ...'
+                                            className={cx('inputs', 'inputss', 'fix-fontsize')}
+                                            // onBlur={onBlurPhone}
+                                            onChange={(e) => setLevel(e.target.value)}
+                                        />
                                     </div>
                                 </div>
                                 <div className={cx('text-input')}>
@@ -281,39 +287,9 @@ function ManageUsers() {
                                         />
                                     </div>
                                 </div>
-                                <div className={cx('text-input')}>
-                                    <label className={cx('label')}>Email</label>
-                                    <div className={cx('input-wrapper')}>
-                                        <input
-                                            type='text'
-                                            value={email}
-                                            placeholder='Nhập email...'
-                                            className={cx('inputs', 'inputss', 'fix-fontsize')}
-                                            // onBlur={onBlurPhone}
-                                            onChange={(e) => setEmail(e.target.value)}
-                                        // disabled={searchPar.get('id') ? false : true}
-
-                                        />
-                                    </div>
-                                </div>
-                                <div className={cx('text-input')}>
-                                    <label className={cx('label')}>Quốc gia</label>
-                                    <div className={cx('input-wrapper')}>
-                                        <input
-                                            type='text'
-                                            value={Country}
-                                            placeholder='Nhập quốc gia...'
-                                            className={cx('inputs', 'inputss', 'fix-fontsize')}
-                                            // onBlur={onBlurPhone}
-                                            onChange={(e) => setCountry(e.target.value)}
-                                        // disabled={searchPar.get('id') ? false : true}
-
-                                        />
-                                    </div>
-                                </div>
                             </div>
                         </div>
-                        {/* <div className={cx('textarea-input')}>
+                        <div className={cx('textarea-input')}>
                             <label className={cx('label')}>Nội dung</label>
                             <div className={cx('input-wrapper')}>
                                 <textarea
@@ -323,7 +299,7 @@ function ManageUsers() {
                                     onChange={(e) => setDescription(e.target.value)}
                                 />
                             </div>
-                        </div> */}
+                        </div>
 
                     </form>
 
@@ -334,7 +310,7 @@ function ManageUsers() {
                 <div className={cx('learning-center')}>
                     <div className={cx('videoplayer-wrapper')}>
                         <div className={cx('videoplayer-player')} style={{ width: '100%', height: '100%', }}>
-                            <div style={{ width: '100%', height: '100%', backgroundSize: ' cover', backgroundPosition: 'center center', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundImage: `url("${image}")` }}>
+                            <div style={{ width: '100%', height: '100%', backgroundSize: ' cover', backgroundPosition: 'center center', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundImage: `url("${courseDetail.image}")` }}>
 
                             </div>
 
@@ -349,6 +325,10 @@ function ManageUsers() {
             <button onClick={onHandleRefresh} className={cx('actionBar-bnt', 'actionBar-refres')}>
                 <FontAwesomeIcon icon={faRefresh} />
                 <span>Refresh</span>
+            </button>
+            <button onClick={handleAddCourse} className={cx('actionBar-bnt', 'actionBar-success')}>
+                <FontAwesomeIcon icon={faPlus} />
+                <span>Thêm</span>
             </button>
             <button onClick={handleDeleteCourse} className={cx('actionBar-bnt', 'actionBar-primary')}>
                 <FontAwesomeIcon icon={faTrash} />
@@ -371,4 +351,4 @@ function ManageUsers() {
     </section>
     </>
 }
-export default ManageUsers
+export default Learning

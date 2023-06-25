@@ -1,6 +1,6 @@
 import Header from "../components/Header";
 import Footer from "../DefaultLayout/Footer";
-function HeaderOnly({ children }) {
+function WithouSidebar({ children }) {
     return (
         <div>
             <Header />
@@ -9,4 +9,4 @@ function HeaderOnly({ children }) {
         </div>
     )
 }
-export default HeaderOnly
+export default WithouSidebar

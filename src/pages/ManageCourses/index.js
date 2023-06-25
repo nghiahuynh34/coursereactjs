@@ -7,7 +7,7 @@ import { logo } from "../../assets/image";
 // import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Button from "../../components/Layout/components/Button";
-import { faStar } from '@fortawesome/free-solid-svg-icons';
+import { faAdd, faStar } from '@fortawesome/free-solid-svg-icons';
 
 const cx = classNames.bind(styles)
 function manageCourses() {
@@ -24,7 +24,6 @@ function manageCourses() {
                     <img alt='logo' className={cx('header-icon')} src={logo} />
                     <span className={cx('header-label')}>Huynh nghia</span>
                 </button>
-
             </div>
         </div>
         <div className="container">
@@ -37,6 +36,12 @@ function manageCourses() {
                             </Link>
                         </h2>
 
+                        <button className={cx('bnt-add-topics')}>
+                            <Link rel='noreferrer' className={cx('wrapper1')} to={ConfigRoutes.ManageTopics} target="_self">
+                                <FontAwesomeIcon className={cx('icon-add')} icon={faAdd} />
+                                Thêm Khóa học
+                            </Link>
+                        </button>
                     </div>
                 </div>
 

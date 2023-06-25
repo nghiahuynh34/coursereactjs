@@ -9,24 +9,12 @@
     user-select: none;
 }
 
-.wrapper.hasBg::after,
-.wrapper.wrapper.hasBg::before {
+.wrapper.hasBg {
     background-image: linear-gradient(rgba(0, 0, 0, .1), rgba(0, 0, 0, .1)), url('../../assets/image/bg.jpg');
     background-size: cover;
-    bottom: -5px;
-    content: "";
-
-    left: -5px;
-    position: absolute;
-    right: -5px;
-    top: -5px;
-    z-index: -1;
 }
 
-.wrapper.hasBg::after {
 
-    z-index: 1;
-}
 
 .container {
     align-items: center;
